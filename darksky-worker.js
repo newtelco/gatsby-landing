@@ -5,7 +5,7 @@ async function getWeatherDetails (hostname) {
   const key = 'DARKSKY_API_KEY'
   const latlong = '50.1001783,8.6245715' // Frankfurt am Main, Germany
 
-  const response = await fetch(`https://api.darksky.net/forecast/${key}/${latlong}`, {
+  const response = await fetch(`https://api.darksky.net/forecast/${key}/${latlong}?units=si`, {
     headers: {
       'Access-Control-Allow-Origin': hostname,
       'Content-Type': 'application/json'

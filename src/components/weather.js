@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+const Skycons = require('skycons')(window)
 
 const Wrapper = styled.div`
   max-width: 500px;
@@ -15,6 +16,7 @@ const ForecastWrapper = styled.div`
   align-items: center;
   flex-wrap: nowrap;
   max-width: 450px;
+  color: #fff;
 `
 
 const TempWrapper = styled.span`
@@ -28,6 +30,7 @@ const DateWrapper = styled.span`
 class WeatherWidget extends React.Component {
   constructor (props) {
     super(props)
+    this.iconRefs = []
     this.state = {
       forecast: '',
       current: ''
@@ -43,6 +46,14 @@ class WeatherWidget extends React.Component {
           forecast: data.forecast,
           current: data.current
         })
+        // const skycons = new Skycons({ color: 'white' })
+        data.forecast.forEach((day, index) => {
+          this.renderIcons(day.icon, index)
+          // const icon = day.icon.toUpperCase()
+          // console.log(icon)
+          // skycons.add(this.index.current, Skycons[icon])
+        })
+        // skycons.play()
       })
       .catch(err => console.error(err))
   }
@@ -50,6 +61,27 @@ class WeatherWidget extends React.Component {
   getDateTimeFromTimestamp (unixTimeStamp) {
     var date = new Date(unixTimeStamp)
     return ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getYear()
+  }
+
+  renderIcons (icon, index) {
+    if (!icon) {
+      return (<h2>Loading...</h2>)
+    }
+
+    console.log(icon, index)
+    const skycons = new Skycons({ color: 'white' })
+    if (icon === 'wind') {
+      skycons.set(this.iconRefs[index], Skycons.WIND)
+      skycons.play()
+    }
+    if (icon === 'cloudy') {
+      skycons.set(this.iconRefs[index], Skycons.CLOUDY)
+      skycons.play()
+    }
+    if (icon === 'fog') {
+      skycons.set(this.iconRefs[index], Skycons.FOG)
+      skycons.play()
+    }
   }
 
   render () {
@@ -62,6 +94,13 @@ class WeatherWidget extends React.Component {
       <Wrapper>
         <ForecastWrapper>
           {Array.isArray(forecast) && forecast.map((day, index) => {
+            // const refName = `${ref}${index}`
+            this.iconRefs[index] = React.createRef()
+            // data.forecast.map((data, index) => {
+            //   if (!(index in this.iconRefs)) {
+            //     this.iconRefs[index] = {}
+            //   }
+            // })
             return (
               <div
                 key={day.time}
@@ -69,6 +108,7 @@ class WeatherWidget extends React.Component {
                   margin: '10px'
                 }}
               >
+                <canvas ref={this.iconRefs[index]} width='128' height='128' />
                 <DateWrapper>
                   {this.getDateTimeFromTimestamp(day.time * 1000)}
                 </DateWrapper>
