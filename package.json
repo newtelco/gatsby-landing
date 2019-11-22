@@ -15,6 +15,7 @@
     "gatsby-plugin-styled-components": "^3.1.8",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.29",
+    "gatsby-transformer-json": "^2.2.19",
     "gatsby-transformer-sharp": "^2.2.20",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
@@ -26,7 +27,8 @@
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "standard": "^14.3.1"
   },
   "keywords": [
     "gatsby"

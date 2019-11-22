@@ -1,0 +1,32 @@
+[
+  {
+    "category": "technik",
+    "apps": [
+      {
+        "name": "3cx",
+        "url": "https://ntpbx.3cx.de:5001"
+      },
+      {
+        "name": "gdrive",
+        "url": "https://drive.newtelco.de"
+      },
+      {
+        "name": "gmail",
+        "url": "https://gmail.newtelco.de"
+      },
+      {
+        "name": "crm",
+        "url": "https://crm.newtelco.de"
+      }
+    ]
+  },
+  {
+    "category": "order",
+    "apps": [
+      {
+        "name": "mks",
+        "url": "https://mks-ag.de"
+      }
+    ]
+  }
+]

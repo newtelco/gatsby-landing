@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -34,12 +34,12 @@ export const Section = styled.section`
   overflow: hidden;
   background-color: ${props => {
     switch (props.accent) {
-      case "secondary":
+      case 'secondary':
         return props.theme.color.white.dark
-      case "main":
+      case 'main':
         return props.theme.color.primary
       default:
-        return "white"
+        return 'white'
     }
   }};
 
@@ -50,7 +50,7 @@ export const Section = styled.section`
   ${props =>
     props.accent &&
     `background-color: ${
-      props.accent === "secondary"
+      props.accent === 'secondary'
         ? props.theme.color.white.dark
         : props.theme.color.primary
     }`};

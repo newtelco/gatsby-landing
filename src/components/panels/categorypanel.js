@@ -1,0 +1,22 @@
+import React from 'react'
+import styled from 'styled-components'
+import AppPanel from './apppanel'
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  padding: 5px;
+`
+
+const CategoryPanel = (props) => {
+  return (
+    <Wrapper>
+      {props.apps.map((app, index) => {
+        return <AppPanel key={app.name}>{app.name}</AppPanel>
+      })}
+    </Wrapper>
+  )
+}
+
+export default CategoryPanel
