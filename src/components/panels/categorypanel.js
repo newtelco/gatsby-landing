@@ -7,13 +7,22 @@ const Wrapper = styled.div`
   height: 60px;
   border-radius: 10px;
   padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+`
+
+const Label = styled.div`
+  font-size: 22px;
+  color: #eee;
+  display: inline-block;
 `
 
 const CategoryPanel = (props) => {
   return (
     <Wrapper>
+      <Label>{props.label}</Label>
       {props.apps.map((app, index) => {
-        return <AppPanel key={app.name}>{app.name}</AppPanel>
+        return <AppPanel key={app.name} app={app} />
       })}
     </Wrapper>
   )

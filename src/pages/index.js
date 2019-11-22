@@ -1,14 +1,24 @@
 import React from "react"
+import styled from 'styled-components'
 import Layout from "../components/common/layout/layout"
-import Container from '../components/common/layout/wrapper'
 import Apps from '../components/apps'
+import WeatherWidget from '../components/weather'
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+`
 
 const IndexPage = () => {
   return (
     <Layout>
-      <Container>
+      <Wrapper>
+        <WeatherWidget />
         <Apps />
-      </Container>
+      </Wrapper>
     </Layout>
   )
 }

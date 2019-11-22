@@ -7,11 +7,20 @@ const Wrapper = styled.div`
   background-color: #fff;
   border-radius: 10px;
   padding: 5px;
+  display: inline-block;
+`
+
+const Link = styled.a`
+  text-decoration: none;
 `
 
 const AppPanel = (props) => {
   return (
-    <Wrapper>{props.children}</Wrapper>
+    <Wrapper>
+      <Link href={props.app.url}>
+        {props.app.name}
+      </Link>
+    </Wrapper>
   )
 }
 
