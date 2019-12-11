@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import AppPanel from './apppanel'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -21,10 +23,12 @@ const Label = styled.div`
 const CategoryPanel = (props) => {
   return (
     <Wrapper>
-      <Label>{props.label}</Label>
-      {props.apps.map((app, index) => {
-        return <AppPanel key={app.name} app={app} />
-      })}
+      {/* <Label>{props.label}</Label> */}
+      <TabPanel>
+        {props.apps.map((app, index) => {
+          return <AppPanel key={app.name} app={app} />
+        })}
+      </TabPanel>
     </Wrapper>
   )
 }

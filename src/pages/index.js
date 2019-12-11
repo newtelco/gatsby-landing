@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 import styled from 'styled-components'
-import Layout from "../components/common/layout/layout"
+import Layout from '../components/common/layout/layout'
 import Apps from '../components/apps'
 import WeatherWidget from '../components/weather'
 

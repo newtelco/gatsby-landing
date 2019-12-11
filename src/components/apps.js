@@ -1,7 +1,10 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import CategoryPanel from './panels/categorypanel'
+// import CategoryPanel from './panels/categorypanel'
 import styled from 'styled-components'
+import AppPanel from './panels/apppanel'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,15 +13,33 @@ const Wrapper = styled.div`
   height: 90vh;
 `
 
-const getAppJson = (data) => {
+const getCategoryLabels = (data) => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
-      <CategoryPanel
-        label={item.node.category}
-        key={item.node.category}
-        apps={item.node.apps}
-      />
+      <Tab key={item.node.category}>
+        {item.node.category}
+      </Tab>
+    )
+  })
+  return appJsonArray
+}
+
+const getCategoryApps = (data) => {
+  const appJsonArray = []
+  data.allAppsJson.edges.forEach(item => {
+    appJsonArray.push(
+      <TabPanel>
+        {item.node.apps.forEach(app => {
+          console.log(app)
+          return (
+            <p>
+              {app.name}
+              <AppPanel key={app.name} app={app} />
+            </p>
+          )
+        })}
+      </TabPanel>
     )
   })
   return appJsonArray
@@ -44,7 +65,12 @@ const Apps = ({ children }) => (
     render={data => {
       return (
         <Wrapper>
-          <ul>{getAppJson(data)}</ul>
+          <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
+            <TabList>
+              {getCategoryLabels(data)}
+            </TabList>
+            {getCategoryApps(data)}
+          </Tabs>
         </Wrapper>
       )
     }}
