@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   padding: 5px;
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
 `
 
 const Label = styled.div`

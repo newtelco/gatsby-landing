@@ -20,11 +20,11 @@
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-animated-weather": "^3.0.0",
     "react-dom": "^16.10.2",
     "react-feather": "^2.0.3",
     "react-helmet": "^5.2.1",
     "react-scrollspy": "^3.4.0",
-    "skycons": "^1.0.0",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
