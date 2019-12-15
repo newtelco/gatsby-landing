@@ -6,7 +6,8 @@ const Wrapper = styled.div`
   max-width: 500px;
   height: 500px;
   background-color: transparent;
-  display: flex;
+  display: inline-block;
+  margin: 20px;
 `
 
 const ForecastWrapper = styled.div`
@@ -24,10 +25,10 @@ const DateTempWrapper = styled.span`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 10px;
-  max-width: 50px;
+  padding: 20px;
+  width: 60px;
 
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 300;
 `
@@ -39,13 +40,27 @@ const DayWrapper = styled.div`
   margin: 20px;
 `
 
+const CurrentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const CurrentTempWrapper = styled.div`
+  font-size: 4rem;
+  color: #fff;
+`
+
 class WeatherWidget extends React.Component {
   constructor (props) {
     super(props)
     this.iconRefs = []
     this.state = {
       forecast: '',
-      current: ''
+      current: {
+        icon: 'CLEAR_DAY',
+        apparentTemperature: 0.0,
+        summary: ''
+      }
     }
   }
 
@@ -75,32 +90,61 @@ class WeatherWidget extends React.Component {
     } = this.state
 
     const defaults = {
-      icon: 'CLEAR_DAY',
       color: 'white',
-      size: 128,
+      size: 64,
       animate: true
     }
 
+    const weatherStyle = {
+      marginTop: '10px',
+      marginBottom: '10px'
+    }
+    console.log(current)
     return (
       <Wrapper>
+        <CurrentWrapper>
+          <div
+            style={{
+              width: '32px',
+              height: '32px'
+            }}
+          >
+            <ReactAnimatedWeather
+              icon={current.icon.toUpperCase()}
+              color={defaults.color}
+              size={32}
+              animate={defaults.animate}
+            />
+          </div>
+          <CurrentTempWrapper>
+            {current.apparentTemperature.toString().substr(0, current.apparentTemperature.toString().length - 1)}°
+          </CurrentTempWrapper>
+          <div
+            style={{
+              color: '#fff'
+            }}
+          >
+            {current.summary}
+          </div>
+        </CurrentWrapper>
         <ForecastWrapper>
           {Array.isArray(forecast) && forecast.map((day, index) => {
             return (
               <DayWrapper
                 key={day.time}
               >
-                <ReactAnimatedWeather
-                  icon={day.icon.toUpperCase()}
-                  color={defaults.color}
-                  size={defaults.size}
-                  animate={defaults.animate}
-                />
                 <DateTempWrapper>
-                  <div>
-                    {this.getDateTimeFromTimestamp(day.time * 1000)}
+                  <div style={weatherStyle}>
+                    {this.getDateTimeFromTimestamp(day.time * 1000).substr(0, 3)}
                   </div>
-                  <div>
-                    {day.apparentTemperatureHigh}°
+                  <ReactAnimatedWeather
+                    icon={day.icon.toUpperCase().replace(/-/g, '_')}
+                    color={defaults.color}
+                    size={defaults.size}
+                    animate={defaults.animate}
+                  />
+                  <div style={weatherStyle}>
+                    {day.apparentTemperatureHigh.toString().substr(0, day.apparentTemperatureHigh.toString().length - 1)}°
                   </div>
                 </DateTempWrapper>
               </DayWrapper>

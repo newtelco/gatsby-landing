@@ -1,31 +1,72 @@
 [
   {
-    "category": "technik",
+    "category": "General",
     "apps": [
       {
-        "name": "3cx",
+        "name": "3CX",
         "url": "https://ntpbx.3cx.de:5001"
       },
       {
-        "name": "gdrive",
+        "name": "GDrive",
         "url": "https://drive.newtelco.de"
       },
       {
-        "name": "gmail",
+        "name": "Gmail",
         "url": "https://gmail.newtelco.de"
       },
       {
-        "name": "crm",
+        "name": "CRM",
         "url": "https://crm.newtelco.de"
+      },
+      {
+        "name": "Vacation",
+        "url": "https://vacation.newtelco.de"
+      },
+      {
+        "name": "Password",
+        "url": "https://password.newtelco.local"
+      },
+      {
+        "name": "Racks",
+        "url": "https://racks.newtelco.de"
+      },
+      {
+        "name": "Newtelco Cloud",
+        "url": "https://cloud.newtelco.de"
       }
     ]
   },
   {
-    "category": "order",
+    "category": "Technik",
     "apps": [
       {
-        "name": "mks",
-        "url": "https://mks-ag.de"
+        "name": "3CX",
+        "url": "https://ntpbx.3cx.de:5001"
+      },
+      {
+        "name": "Docs",
+        "url": "http://docs.newtelco.de"
+      },
+      {
+        "name": "Unifi Wifi",
+        "url": "http://192.168.11.230:1212"
+      },
+      {
+        "name": "Observium NMS",
+        "url": "http://nms.newtelco.de"
+      },
+      {
+        "name": "Trello",
+        "url": "https://trello.com/b/kPnaIXSu"
+      }
+    ]
+  },
+  {
+    "category": "Order",
+    "apps": [
+      {
+        "name": "MKS Videos",
+        "url": "https://drive.google.com/drive/folders/1SjH1SUtOlcnt3fzPS0_E_P3rs-F1UwKF"
       }
     ]
   }

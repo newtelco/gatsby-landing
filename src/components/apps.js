@@ -1,16 +1,24 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-// import CategoryPanel from './panels/categorypanel'
 import styled from 'styled-components'
 import AppPanel from './panels/apppanel'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
+import './style/react-tabs-newtelco.css'
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 90vh;
+  margin: 50px;
+  width: 40vw;
+  min-width: 515px;
+  height: 80vh;
+`
+
+const AppWrapper = styled.div`
+  display: inline-block;
 `
 
 const getCategoryLabels = (data) => {
@@ -29,20 +37,21 @@ const getCategoryApps = (data) => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
-      <TabPanel>
-        {item.node.apps.forEach(app => {
-          console.log(app)
-          return (
-            <p>
-              {app.name}
-              <AppPanel key={app.name} app={app} />
-            </p>
-          )
-        })}
+      <TabPanel key={item.category}>
+        {item.node.apps.map(app => (
+          <AppWrapper key={app.name}>
+            <AppPanel app={app} />
+          </AppWrapper>
+        ))}
       </TabPanel>
     )
   })
   return appJsonArray
+}
+
+const tabsStyle = {
+  position: 'absolute',
+  top: '0'
 }
 
 const Apps = ({ children }) => (
@@ -65,7 +74,7 @@ const Apps = ({ children }) => (
     render={data => {
       return (
         <Wrapper>
-          <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
+          <Tabs style={tabsStyle} defaultIndex={0} onSelect={index => console.log(index)}>
             <TabList>
               {getCategoryLabels(data)}
             </TabList>
