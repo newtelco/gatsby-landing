@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import ReactAnimatedWeather from 'react-animated-weather'
 
 const Wrapper = styled.div`
-  max-width: 500px;
-  height: 500px;
   background-color: transparent;
   display: inline-block;
   margin: 20px;
+  align-self: flex-end;
 `
 
 const ForecastWrapper = styled.div`
@@ -91,7 +90,7 @@ class WeatherWidget extends React.Component {
 
     const defaults = {
       color: 'white',
-      size: 64,
+      size: 48,
       animate: true
     }
 
@@ -103,29 +102,37 @@ class WeatherWidget extends React.Component {
     return (
       <Wrapper>
         <CurrentWrapper>
-          <div
-            style={{
-              width: '32px',
-              height: '32px'
-            }}
-          >
-            <ReactAnimatedWeather
-              icon={current.icon.toUpperCase()}
-              color={defaults.color}
-              size={32}
-              animate={defaults.animate}
-            />
-          </div>
           <CurrentTempWrapper>
             {current.apparentTemperature.toString().substr(0, current.apparentTemperature.toString().length - 1)}°
           </CurrentTempWrapper>
-          <div
-            style={{
-              color: '#fff'
-            }}
-          >
-            {current.summary}
-          </div>
+          <span style={{ position: 'relative' }}>
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                display: 'inline'
+              }}
+            >
+              <ReactAnimatedWeather
+                icon={current.icon.toUpperCase()}
+                color={defaults.color}
+                size={32}
+                animate={defaults.animate}
+              />
+            </div>
+            <div
+              style={{
+                color: '#fff',
+                display: 'inline',
+                height: '35px',
+                position: 'absolute',
+                bottom: '-7px',
+                left: '40px'
+              }}
+            >
+              {current.summary}
+            </div>
+          </span>
         </CurrentWrapper>
         <ForecastWrapper>
           {Array.isArray(forecast) && forecast.map((day, index) => {

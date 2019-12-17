@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/layout/layout'
 import Apps from '../components/apps'
+import Header from '../components/header'
 import WeatherWidget from '../components/weather'
 
 const Wrapper = styled.div`
@@ -16,7 +17,17 @@ const IndexPage = () => {
   return (
     <Layout>
       <Wrapper>
-        <WeatherWidget />
+        <div
+          style={{
+            height: '90vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Header />
+          <WeatherWidget />
+        </div>
         <Apps />
       </Wrapper>
     </Layout>

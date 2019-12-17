@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   margin: 50px;
   width: 40vw;
   min-width: 515px;
+  max-width: 525px;
   height: 80vh;
 `
 
