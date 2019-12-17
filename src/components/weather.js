@@ -98,7 +98,7 @@ class WeatherWidget extends React.Component {
       marginTop: '10px',
       marginBottom: '10px'
     }
-    console.log(current)
+
     return (
       <Wrapper>
         <CurrentWrapper>

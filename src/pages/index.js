@@ -4,6 +4,7 @@ import Layout from '../components/common/layout/layout'
 import Apps from '../components/apps'
 import Header from '../components/header'
 import WeatherWidget from '../components/weather'
+import Particles from 'react-particles-js'
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,22 +16,29 @@ const Wrapper = styled.div`
 
 const IndexPage = () => {
   return (
-    <Layout>
-      <Wrapper>
-        <div
-          style={{
-            height: '90vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between'
-          }}
-        >
-          <Header />
-          <WeatherWidget />
-        </div>
-        <Apps />
-      </Wrapper>
-    </Layout>
+    <>
+      <Particles
+        style={{
+          position: 'absolute'
+        }}
+      />
+      <Layout>
+        <Wrapper>
+          <div
+            style={{
+              height: '90vh',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+          >
+            <Header />
+            <WeatherWidget />
+          </div>
+          <Apps />
+        </Wrapper>
+      </Layout>
+    </>
   )
 }
 

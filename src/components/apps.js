@@ -75,7 +75,7 @@ const Apps = ({ children }) => (
     render={data => {
       return (
         <Wrapper>
-          <Tabs style={tabsStyle} defaultIndex={0} onSelect={index => console.log(index)}>
+          <Tabs style={tabsStyle} defaultIndex={0}>
             <TabList>
               {getCategoryLabels(data)}
             </TabList>
