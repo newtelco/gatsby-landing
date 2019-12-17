@@ -39,9 +39,6 @@
   background: none;
 }
 
-.react-tabs__tab:not(.react-tabs__tab--selected):hover {
-}
-
 .react-tabs {
   width: 100%;
 }

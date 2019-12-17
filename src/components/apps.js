@@ -5,6 +5,14 @@ import AppPanel from './panels/apppanel'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 import './style/react-tabs-newtelco.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faMicrochip,
+  faBriefcase,
+  faCalculator
+} from '@fortawesome/free-solid-svg-icons'
+import { Tooltip } from 'react-tippy'
+import 'react-tippy/dist/tippy.css'
 
 const Wrapper = styled.div`
   position: relative;
@@ -22,12 +30,35 @@ const AppWrapper = styled.div`
   display: inline-block;
 `
 
+const getIcon = (category) => {
+  switch (category) {
+    case 'Technik':
+      return <FontAwesomeIcon icon={faMicrochip} size='2x' />
+    case 'Order':
+      return <FontAwesomeIcon icon={faCalculator} size='2x' />
+    case 'General':
+      return <FontAwesomeIcon icon={faBriefcase} size='2x' />
+    default:
+      return <FontAwesomeIcon icon={faBriefcase} />
+  }
+}
+
 const getCategoryLabels = (data) => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
       <Tab key={item.node.category}>
-        {item.node.category}
+        <Tooltip
+          title={item.node.category}
+          position='top'
+          trigger='mouseenter'
+          arrow
+          delay={5}
+          hideDelay={10}
+          theme='transparent'
+        >
+          {getIcon(item.node.category)}
+        </Tooltip>
       </Tab>
     )
   })
