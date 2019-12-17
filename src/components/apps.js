@@ -52,9 +52,10 @@ const getCategoryLabels = (data) => {
           title={item.node.category}
           position='top'
           trigger='mouseenter'
-          arrow
-          delay={5}
-          hideDelay={10}
+          animateFill
+          distance='55'
+          delay='5'
+          hideDelay='20'
           theme='transparent'
         >
           {getIcon(item.node.category)}

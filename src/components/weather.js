@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   display: inline-block;
   margin: 20px;
   align-self: flex-end;
+  min-width: 420px;
 `
 
 const ForecastWrapper = styled.div`
