@@ -25,8 +25,7 @@ const SEO = ({ description, lang, meta, title }) => {
       htmlAttributes={{
         lang
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={site.siteMetadata.title}
       meta={[
         {
           name: 'description',
@@ -63,7 +62,7 @@ const SEO = ({ description, lang, meta, title }) => {
       ].concat(meta)}
     >
       <meta charSet='utf-8' />
-      <title>{title}</title>
+      <title>Newtelco Home</title>
       <link rel='canonical' href='https://home.newtelco.de' />
     </Helmet>
   )
