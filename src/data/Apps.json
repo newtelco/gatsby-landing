@@ -35,8 +35,8 @@
         "url": "https://cloud.newtelco.de"
       },
       {
-        "name": "Lorem Ipsum",
-        "url": "https://cloud.newtelco.de"
+        "name": "NOC Dashboard",
+        "url": "http://192.168.11.239:8006/ntdashboard"
       }
     ]
   },
@@ -64,8 +64,20 @@
         "url": "https://trello.com/b/kPnaIXSu"
       },
       {
-        "name": "Leitungsdokus",
+        "name": "Leitungdocs",
         "url": "https://drive.google.com/drive/u/0/folders/1KYmq-AWta-kdYUpBr3vc-_6jMWcqsDSd"
+      },
+      {
+        "name": "Maintenance",
+        "url": "https://maintenance.newtelco.de"
+      },
+      {
+        "name": "CRM GCP",
+        "url": "https://console.cloud.google.com/compute/instances?project=newtelcocrm"
+      },
+      {
+        "name": "Gitlab",
+        "url": "https://git.newtelco.dev"
       }
     ]
   },
@@ -77,12 +89,12 @@
         "url": "https://drive.google.com/drive/folders/1SjH1SUtOlcnt3fzPS0_E_P3rs-F1UwKF"
       },
       {
-        "name": "Lorem Telconum",
-        "url": "https://cloud.newtelco.de"
+        "name": "MKS Akademie",
+        "url": "https://www.mks-ag.de/akademie/videos"
       },
       {
-        "name": "Lorem Ipsum",
-        "url": "https://cloud.newtelco.de"
+        "name": "Project Overview",
+        "url": "https://drive.google.com/open?id=11bONRUuH_6EnFtogWm8ah9sQ9zm46fiumcgkaR1CdPQ"
       }
     ]
   }

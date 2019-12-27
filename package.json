@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-saas-marketing",
+  "name": "newtelco-landing-gatsby",
   "private": true,
-  "description": "A simple one page marketing starter for saas companies",
-  "version": "0.1.0",
-  "author": "Keegan Burkett <keegan.t.marciniak@gmail.com>",
+  "description": "Intranet Landing Page for Newtelco Internal Use",
+  "version": "0.5.0",
+  "author": "Nico Domino <yo@ndo.dev>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
@@ -38,7 +38,10 @@
     "standard": "^14.3.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "newtelco",
+    "landing page",
+    "intranet"
   ],
   "license": "MIT",
   "scripts": {
@@ -46,14 +49,13 @@
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "serve": "gatsby serve"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://git.newtelco.dev/ndomino/gatsby-landing"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://git.newtelco.dev/ndomino/gatsby-landing/issues"
   }
 }
