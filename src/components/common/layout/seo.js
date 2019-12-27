@@ -61,7 +61,11 @@ const SEO = ({ description, lang, meta, title }) => {
           content: metaDescription
         }
       ].concat(meta)}
-    />
+    >
+      <meta charSet='utf-8' />
+      <title>{title}</title>
+      <link rel='canonical' href='https://home.newtelco.de' />
+    </Helmet>
   )
 }
 

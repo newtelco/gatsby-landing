@@ -137,6 +137,13 @@ class WeatherWidget extends React.Component {
         </CurrentWrapper>
         <ForecastWrapper>
           {Array.isArray(forecast) && forecast.map((day, index) => {
+            const dayHigh = day.apparentTemperatureHigh.toString()
+            let dayTemp
+            if (dayHigh.length > 3) {
+              dayTemp = dayHigh.substr(0, dayHigh.length - 1)
+            } else {
+              dayTemp = dayHigh
+            }
             return (
               <DayWrapper
                 key={day.time}
@@ -152,7 +159,7 @@ class WeatherWidget extends React.Component {
                     animate={defaults.animate}
                   />
                   <div style={weatherStyle}>
-                    {day.apparentTemperatureHigh.toString().substr(0, day.apparentTemperatureHigh.toString().length - 1)}°
+                    {dayTemp}°
                   </div>
                 </DateTempWrapper>
               </DayWrapper>
