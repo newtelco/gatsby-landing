@@ -24,7 +24,7 @@
       },
       {
         "name": "Password",
-        "url": "https://password.newtelco.local"
+        "url": "http://password.newtelco.local"
       },
       {
         "name": "Racks",
@@ -49,15 +49,15 @@
       },
       {
         "name": "Docs",
-        "url": "http://docs.newtelco.de"
+        "url": "https://docs.newtelco.de"
       },
       {
         "name": "Unifi Wifi",
-        "url": "http://192.168.11.230:1212"
+        "url": "https://wlan.newtelco.local"
       },
       {
         "name": "Observium NMS",
-        "url": "http://nms.newtelco.de"
+        "url": "https://nms.newtelco.de"
       },
       {
         "name": "Trello",
