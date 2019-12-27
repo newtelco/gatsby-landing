@@ -12,6 +12,9 @@ const Wrapper = styled.div`
   height: 100vh;
   justify-content: space-around;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const IndexPage = () => {

@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   margin: 20px;
   align-self: flex-end;
   min-width: 420px;
+  @media (max-width: 768px) {
+    min-width: unset;
+    width: 85%;
+  }
 `
 
 const ForecastWrapper = styled.div`
@@ -31,6 +35,11 @@ const DateTempWrapper = styled.span`
   font-size: 1.2rem;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 300;
+
+  @media (max-width: 768px) {
+    padding: 5px;
+    width: 35px;
+  }
 `
 
 const DayWrapper = styled.div`
@@ -115,7 +124,7 @@ class WeatherWidget extends React.Component {
               }}
             >
               <ReactAnimatedWeather
-                icon={current.icon.toUpperCase()}
+                icon={current.icon.toUpperCase().replace(/-/g, '_')}
                 color={defaults.color}
                 size={32}
                 animate={defaults.animate}

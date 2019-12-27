@@ -24,6 +24,9 @@ const Wrapper = styled.div`
   min-width: 515px;
   max-width: 525px;
   height: 80vh;
+  @media (max-width: 768px) {
+    min-width: unset;
+  }
 `
 
 const AppWrapper = styled.div`
@@ -70,7 +73,8 @@ const getCategoryApps = (data) => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
-      <TabPanel key={item.category}>
+      // <TabPanel key={item.category}>
+      <TabPanel>
         {item.node.apps.map(app => (
           <AppWrapper key={app.name}>
             <AppPanel app={app} />

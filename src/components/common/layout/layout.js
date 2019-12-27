@@ -8,7 +8,7 @@ import '../../../static/fonts/fonts.css'
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <SEO />
+    <SEO /> {/* eslint-disable-line */}
     <GlobalStyles />
     {children}
   </ThemeProvider>

@@ -4,7 +4,7 @@
     "apps": [
       {
         "name": "3CX",
-        "url": "https://ntpbx.3cx.de:5001"
+        "url": "https://192.168.30.250:5001/webclient"
       },
       {
         "name": "GDrive",
@@ -44,8 +44,8 @@
     "category": "Technik",
     "apps": [
       {
-        "name": "3CX",
-        "url": "https://ntpbx.3cx.de:5001"
+        "name": "Proxmox",
+        "url": "https://pve1.newtelco.local"
       },
       {
         "name": "Docs",

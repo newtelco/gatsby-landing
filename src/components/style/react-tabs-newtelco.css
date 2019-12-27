@@ -77,3 +77,11 @@
                translateY(0);
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .react-tabs__tab-panel.react-tabs__tab-panel--selected {
+    width: 225%;
+    transform: translateX(-28%);
+    margin-bottom: 50px;
+  }
+}
