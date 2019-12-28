@@ -35,8 +35,8 @@
         "url": "https://cloud.newtelco.de"
       },
       {
-        "name": "NOC Dashboard",
-        "url": "http://192.168.11.239:8006/ntdashboard"
+        "name": "Trello",
+        "url": "https://trello.com/b/kPnaIXSu"
       }
     ]
   },
@@ -60,8 +60,8 @@
         "url": "https://nms.newtelco.de"
       },
       {
-        "name": "Trello",
-        "url": "https://trello.com/b/kPnaIXSu"
+        "name": "Server Monitoring",
+        "url": "https://dashboard.newtelco.de"
       },
       {
         "name": "Leitungdocs",
