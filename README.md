@@ -4,8 +4,6 @@
 
 Company intranet landing page for NewTelco GmbH. Based on [Gatsby](https://gatsbyjs.org). 
 
-Hosted via [Netlify](https://netlify.com)
-
 Available via:  
 - [home.newtelco.de](https://home.newtelco.de)  
 - [home.newtelco.dev](https://home.newtelco.dev) (**TESTING**)  
