@@ -11,6 +11,17 @@ const TrelloCard = styled.div`
   margin: 0px 5px;
 `
 
+const CardsContainer = (props) => {
+  return (
+    props.cards.forEach((card) => (
+      <TrelloCard key={card.id}>
+        {card.name}
+      </TrelloCard>
+    )
+    )
+  )
+}
+
 class TrelloWrapper extends React.Component {
   constructor (props) {
     super(props)
@@ -54,14 +65,10 @@ class TrelloWrapper extends React.Component {
 
     if (cards.length > 0) {
       return (
-        <Ticker mode='smooth' offset='run-in' speed={10}>
-          {() => cards.map((card) => {
-            return (
-              <TrelloCard key={card.id}>
-                {card.name}
-              </TrelloCard>
-            )
-          })}
+        <Ticker mode='chain' speed={10}>
+          {(index) => (
+            <CardsContainer cards={cards} />
+          )}
         </Ticker>
       )
     } else {

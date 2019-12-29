@@ -85,3 +85,7 @@
     margin-bottom: 50px;
   }
 }
+
+.ticker__element {
+  white-space: nowrap;
+}
