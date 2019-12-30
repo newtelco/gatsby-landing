@@ -7,13 +7,13 @@ const TrelloCard = styled.div`
   height: 20px;
   width: 200px;
   display: inline;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.4);
   margin: 0px 150px;
   white-space: nowrap;
 `
 
 const TrelloLink = styled.a`
-  color: #fff;
+  color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
   display: inline;
 `
@@ -21,11 +21,10 @@ const TrelloLink = styled.a`
 const TrelloLabel = styled.div`
   border: 1px solid #fff;
   color: #fff;
-  font-weight: 700;
   background: ${props => props.color};
   height: 25px;
   width: 100px;
-  opacity: 0.3;
+  opacity: 0.1;
   border-radius: 5px;
   display: inline-flex;
   justify-content: center;
@@ -74,8 +73,8 @@ class TrelloWrapper extends React.Component {
 
   fetchCards () {
     const client = new TrelloClient({
-      key: process.env.TRELLO_API,
-      token: process.env.TRELLO_TOKEN,
+      key: process.env.GATSBY_TRELLO_API,
+      token: process.env.GATSBY_TRELLO_TOKEN,
       timeout: 1000
     })
 
@@ -120,7 +119,7 @@ class TrelloWrapper extends React.Component {
 
     if (cards.length > 0) {
       return (
-        <Ticker mode='await' speed={5}>
+        <Ticker mode='smooth' speed={5}>
           {(index) => (
             <CardsContainer cards={cards} />
           )}
