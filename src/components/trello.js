@@ -5,21 +5,58 @@ import { TrelloClient } from 'trello.ts'
 
 const TrelloCard = styled.div`
   height: 20px;
-  white-space: nowrap;
-  display: flex;
+  width: 200px;
+  display: inline;
   color: #fff;
+  margin: 0px 150px;
+  white-space: nowrap;
+`
+
+const TrelloLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  display: inline;
+`
+
+const TrelloLabel = styled.div`
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  background: ${props => props.color};
+  height: 25px;
+  width: 100px;
+  opacity: 0.3;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   margin: 0px 5px;
 `
 
-const CardsContainer = (props) => {
-  return (
-    props.cards.forEach((card) => (
-      <TrelloCard key={card.id}>
-        {card.name}
-      </TrelloCard>
-    )
-    )
-  )
+class CardsContainer extends React.Component {
+  render () {
+    if (this.props.cards.length > 0) {
+      return (
+        this.props.cards.map((card) => (
+          <TrelloCard key={card.id}>
+            <TrelloLink href={card.shortUrl} ref='noopener noreferer' target='_blank'>
+              {card.name}
+            </TrelloLink>
+            {card.labelDetails && card.labelDetails.map(label => {
+              return (
+                <TrelloLabel key={label.id} color={label.color}>
+                  {label.name}
+                </TrelloLabel>
+              )
+            })}
+          </TrelloCard>
+        )
+        )
+      )
+    } else {
+      return null
+    }
+  }
 }
 
 class TrelloWrapper extends React.Component {
@@ -31,6 +68,11 @@ class TrelloWrapper extends React.Component {
   }
 
   componentDidMount () {
+    if (this.state.cards.length === 0) this.fetchCards()
+    if (this.state.cards.length !== 0) this.fetchLabels()
+  }
+
+  fetchCards () {
     const client = new TrelloClient({
       key: process.env.TRELLO_API,
       token: process.env.TRELLO_TOKEN,
@@ -38,24 +80,37 @@ class TrelloWrapper extends React.Component {
     })
 
     client.board
-      .getCards({ id: '5c671254bcea64060f2d0161' })
+      .getCards({ id: '5c671254bcea64060f2d0161' }) // Board: Newtelco Technik
       .then(data => {
-        console.log(data)
-        this.setState({
-          cards: data
+        const newCards = []
+        data && data.forEach(card => {
+          if (card.idList === '5c67128006d9580f33786ba8') { // List: To-Do
+            newCards.push(card)
+          }
         })
+        this.setState({
+          cards: newCards
+        })
+        client.board
+          .getLabels({ id: '5c671254bcea64060f2d0161' }) // Board: Newtelco Technik
+          .then(data2 => {
+            newCards.forEach(card => {
+              if (card.idLabels.length > 0) {
+                card.labelDetails = []
+                card.idLabels.forEach(labelId => {
+                  const labelDetails = data2.filter(label => label.id === labelId)
+                  card.labelDetails.push(labelDetails[0])
+                })
+              }
+            })
+          })
+          .catch(e => {
+            console.error(`Error Fetching Labels - ${e}`)
+          })
       })
       .catch(e => {
-        throw e
+        console.error(`Error Fetching Cards - ${e}`)
       })
-  }
-
-  authFail (error) {
-    console.error(`Auth Failed - ${error}`)
-  }
-
-  authSuccess (data) {
-    console.log(`Success - ${data}`)
   }
 
   render () {
@@ -65,7 +120,7 @@ class TrelloWrapper extends React.Component {
 
     if (cards.length > 0) {
       return (
-        <Ticker mode='chain' speed={10}>
+        <Ticker mode='await' speed={5}>
           {(index) => (
             <CardsContainer cards={cards} />
           )}

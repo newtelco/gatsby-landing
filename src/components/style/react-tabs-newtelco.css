@@ -86,6 +86,20 @@
   }
 }
 
+.ticker {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 60px;
+}
+
 .ticker__element {
   white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 98%;
+}
+
+html {
+  overflow: hidden;
 }
