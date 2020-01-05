@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import Ticker from 'react-ticker'
 import { TrelloClient } from 'trello.ts'
+import Marquee from 'react-double-marquee'
 
 const TrelloCard = styled.div`
   height: 20px;
   width: 200px;
   display: inline;
   color: rgba(255, 255, 255, 0.4);
-  margin: 0px 150px;
+  margin: 0px 110px;
   white-space: nowrap;
+  border: 3px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 10px;
 `
 
 const TrelloLink = styled.a`
@@ -19,12 +22,11 @@ const TrelloLink = styled.a`
 `
 
 const TrelloLabel = styled.div`
-  border: 1px solid #fff;
   color: #fff;
   background: ${props => props.color};
   height: 25px;
   width: 100px;
-  opacity: 0.1;
+  opacity: 0.2;
   border-radius: 5px;
   display: inline-flex;
   justify-content: center;
@@ -32,28 +34,36 @@ const TrelloLabel = styled.div`
   margin: 0px 5px;
 `
 
+const TrelloPlaceholder = styled.div`
+  visibility: hidden;
+  height: 20px;
+  width: 200px;
+`
+
 class CardsContainer extends React.Component {
   render () {
     if (this.props.cards.length > 0) {
       return (
         this.props.cards.map((card) => (
-          <TrelloCard key={card.id}>
-            <TrelloLink href={card.shortUrl} ref='noopener noreferer' target='_blank'>
+          <TrelloLink key={card.id} href={card.shortUrl} ref='noopener noreferer' target='_blank'>
+            <TrelloCard>
               {card.name}
-            </TrelloLink>
-            {card.labelDetails && card.labelDetails.map(label => {
-              return (
-                <TrelloLabel key={label.id} color={label.color}>
-                  {label.name}
-                </TrelloLabel>
-              )
-            })}
-          </TrelloCard>
+              {card.labels && card.labels.map(label => {
+                return (
+                  <TrelloLabel key={label.id} color={label.color}>
+                    {label.name}
+                  </TrelloLabel>
+                )
+              })}
+            </TrelloCard>
+          </TrelloLink>
         )
         )
       )
     } else {
-      return null
+      return (
+        <TrelloPlaceholder />
+      )
     }
   }
 }
@@ -90,22 +100,6 @@ class TrelloWrapper extends React.Component {
         this.setState({
           cards: newCards
         })
-        client.board
-          .getLabels({ id: '5c671254bcea64060f2d0161' }) // Board: Newtelco Technik
-          .then(data2 => {
-            newCards.forEach(card => {
-              if (card.idLabels.length > 0) {
-                card.labelDetails = []
-                card.idLabels.forEach(labelId => {
-                  const labelDetails = data2.filter(label => label.id === labelId)
-                  card.labelDetails.push(labelDetails[0])
-                })
-              }
-            })
-          })
-          .catch(e => {
-            console.error(`Error Fetching Labels - ${e}`)
-          })
       })
       .catch(e => {
         console.error(`Error Fetching Cards - ${e}`)
@@ -119,11 +113,20 @@ class TrelloWrapper extends React.Component {
 
     if (cards.length > 0) {
       return (
-        <Ticker mode='smooth' speed={5}>
-          {(index) => (
+        <div
+          style={{
+            width: '100%',
+            height: '40px',
+            whiteSpace: 'nowrap',
+            position: 'absolute',
+            bottom: '30px'
+          }}
+          className='marquee-wrapper'
+        >
+          <Marquee delay={1000} speed={-0.03}>
             <CardsContainer cards={cards} />
-          )}
-        </Ticker>
+          </Marquee>
+        </div>
       )
     } else {
       return null

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import AppPanel from './panels/apppanel'
+import AppPanel from './panels/app-panel'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 import './style/react-tabs-newtelco.css'
@@ -54,11 +54,12 @@ const getCategoryLabels = (data) => {
         <Tooltip
           title={item.node.category}
           position='top'
-          trigger='mouseenter'
-          animateFill
-          distance='55'
-          delay='5'
-          hideDelay='20'
+          trigger='mouseenter focus click'
+          animation='perspective'
+          transitionFlip
+          distance={55}
+          delay={5}
+          hideDelay={20}
           theme='transparent'
         >
           {getIcon(item.node.category)}
@@ -73,7 +74,6 @@ const getCategoryApps = (data) => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
-      // <TabPanel key={item.category}>
       <TabPanel>
         {item.node.apps.map(app => (
           <AppWrapper key={app.name}>

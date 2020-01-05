@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import Tilt from 'react-parallax-tilt'
 
 const Wrapper = styled.div`
   width: 130px;
   height: 130px;
   border-radius: 10px;
   padding: 5px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2);
   margin: 10px;
   display: flex;
   align-items: center;
@@ -98,9 +99,16 @@ const Link = styled.a`
 const AppPanel = (props) => {
   return (
     <Link target='_blank' href={props.app.url}>
-      <Wrapper>
-        {props.app.name}
-      </Wrapper>
+      <Tilt
+        tiltReverse
+        tiltMaxAngleX={35}
+        tiltMaxAngleY={35}
+        gyroscope
+      >
+        <Wrapper>
+          {props.app.name}
+        </Wrapper>
+      </Tilt>
     </Link>
   )
 }

@@ -103,3 +103,8 @@
 html {
   overflow: hidden;
 }
+
+.marquee-wrapper > div > div {
+  height: 60px;
+  margin-top: 15px;
+}
