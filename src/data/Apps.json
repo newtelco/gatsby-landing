@@ -23,8 +23,8 @@
         "url": "https://vacation.newtelco.de"
       },
       {
-        "name": "Password",
-        "url": "http://password.newtelco.local"
+        "name": "PW Manager",
+        "url": "https://nt-passit.herokuapp.com/"
       },
       {
         "name": "Racks",
@@ -72,8 +72,8 @@
         "url": "https://maintenance.newtelco.de"
       },
       {
-        "name": "CRM GCP",
-        "url": "https://console.cloud.google.com/compute/instances?project=newtelcocrm"
+        "name": "Tickets",
+        "url": "https://support.newtelco.de"
       },
       {
         "name": "Gitlab",
