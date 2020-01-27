@@ -77,13 +77,19 @@ class TrelloWrapper extends React.Component {
   }
 
   componentDidMount () {
-    if (this.state.cards.length === 0) this.fetchCards()
-    if (this.state.cards.length !== 0) this.fetchLabels()
     // const publicIp = window.location.referer
-    fetch('https://www.cloudflare.com/cdn-cgi/trace')
+    fetch('https://wtfismyip.com/json')
       .then(resp => resp.json())
       .then(data => {
         console.log(data)
+        const IP = data.YourFuckingIPAddress
+        console.log(IP)
+        if (IP === '94.249.131.6') {
+          if (this.state.cards.length === 0) this.fetchCards()
+          if (this.state.cards.length !== 0) this.fetchLabels()
+        } else {
+          console.error('Not coming from Newtelco Office!')
+        }
       })
       .catch(err => console.error(err))
   }
