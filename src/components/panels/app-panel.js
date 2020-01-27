@@ -101,8 +101,8 @@ const AppPanel = (props) => {
     <Link target='_blank' href={props.app.url}>
       <Tilt
         tiltReverse
-        tiltMaxAngleX={35}
-        tiltMaxAngleY={35}
+        tiltMaxAngleX={15}
+        tiltMaxAngleY={15}
         gyroscope
       >
         <Wrapper>
