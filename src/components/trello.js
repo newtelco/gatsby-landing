@@ -81,14 +81,12 @@ class TrelloWrapper extends React.Component {
     fetch('https://wtfismyip.com/json')
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
         const IP = data.YourFuckingIPAddress
-        console.log(IP)
         if (IP === '94.249.131.6') {
           if (this.state.cards.length === 0) this.fetchCards()
           if (this.state.cards.length !== 0) this.fetchLabels()
         } else {
-          console.error('Not coming from Newtelco Office!')
+          console.error('Not in Newtelco Office')
         }
       })
       .catch(err => console.error(err))
