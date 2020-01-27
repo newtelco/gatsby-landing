@@ -79,6 +79,13 @@ class TrelloWrapper extends React.Component {
   componentDidMount () {
     if (this.state.cards.length === 0) this.fetchCards()
     if (this.state.cards.length !== 0) this.fetchLabels()
+    // const publicIp = window.location.referer
+    fetch('https://www.cloudflare.com/cdn-cgi/trace')
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => console.error(err))
   }
 
   fetchCards () {
