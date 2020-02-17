@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import AppPanel from './panels/app-panel'
+import Toggl from './panels/toggl'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 import './style/react-tabs-newtelco.css'
@@ -33,7 +34,7 @@ const AppWrapper = styled.div`
   display: inline-block;
 `
 
-const getIcon = (category) => {
+const getIcon = category => {
   switch (category) {
     case 'Technik':
       return <FontAwesomeIcon icon={faMicrochip} size='2x' />
@@ -46,7 +47,7 @@ const getIcon = (category) => {
   }
 }
 
-const getCategoryLabels = (data) => {
+const getCategoryLabels = data => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
@@ -67,10 +68,13 @@ const getCategoryLabels = (data) => {
       </Tab>
     )
   })
+  appJsonArray.push(
+    <Toggl />
+  )
   return appJsonArray
 }
 
-const getCategoryApps = (data) => {
+const getCategoryApps = data => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
@@ -99,7 +103,7 @@ const Apps = ({ children }) => (
           edges {
             node {
               category
-              apps{
+              apps {
                 name
                 url
               }
@@ -112,9 +116,7 @@ const Apps = ({ children }) => (
       return (
         <Wrapper>
           <Tabs style={tabsStyle} defaultIndex={0}>
-            <TabList>
-              {getCategoryLabels(data)}
-            </TabList>
+            <TabList>{getCategoryLabels(data)}</TabList>
             {getCategoryApps(data)}
           </Tabs>
         </Wrapper>
