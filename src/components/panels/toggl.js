@@ -5,14 +5,14 @@ import '../style/react-tabs-newtelco.css'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBusinessTime } from '@fortawesome/free-solid-svg-icons'
+import { faTerminal } from '@fortawesome/free-solid-svg-icons'
 
 class Toggl extends React.Component {
-  render() {
+  render () {
     return (
       <Tab key='Toggl'>
         <Tooltip
-          title='Toggl'
+          title='Cmd'
           position='top'
           trigger='mouseenter focus click'
           animation='perspective'
@@ -22,7 +22,7 @@ class Toggl extends React.Component {
           hideDelay={20}
           theme='transparent'
         >
-          <FontAwesomeIcon icon={faBusinessTime} size='2x' />
+          <FontAwesomeIcon icon={faTerminal} size='2x' />
         </Tooltip>
       </Tab>
     )
