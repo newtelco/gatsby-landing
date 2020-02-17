@@ -87,6 +87,11 @@ const Wrapper = styled.div`
     border-left-color: #fff;
     transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
   }
+  @media (max-height: 768px) {
+    height: 100px;
+    width: 100px;
+    font-size: 1.1rem;
+  }
 `
 
 const Link = styled.a`

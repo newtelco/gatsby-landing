@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import AppPanel from './panels/app-panel'
-import Toggl from './panels/toggl'
+import Cmd from './common/cmd'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 import './style/react-tabs-newtelco.css'
@@ -27,6 +27,11 @@ const Wrapper = styled.div`
   height: 80vh;
   @media (max-width: 768px) {
     min-width: unset;
+  }
+  @media (max-height: 768px) {
+    height: 65vh;
+    margin: 15px;
+    margin-top: -5%;
   }
 `
 
@@ -69,7 +74,7 @@ const getCategoryLabels = data => {
     )
   })
   appJsonArray.push(
-    <Toggl />
+    <Cmd />
   )
   return appJsonArray
 }

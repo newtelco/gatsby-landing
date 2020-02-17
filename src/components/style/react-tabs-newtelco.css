@@ -8,6 +8,7 @@
   padding: 30px;
   margin-right: 10px;
   color: #fff;
+  width: 100px;
 }
 
 .react-tabs__tab:not(.react-tabs__tab--selected):hover {
@@ -83,6 +84,15 @@
     width: 225%;
     transform: translateX(-28%);
     margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-height: 768px) {
+  .react-tabs__tab-panel.react-tabs__tab-panel--selected {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    width: 450px;
   }
 }
 
