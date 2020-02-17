@@ -73,9 +73,11 @@ const getCategoryLabels = data => {
       </Tab>
     )
   })
-  appJsonArray.push(
-    <Cmd />
-  )
+  if (typeof window !== 'undefined') {
+    appJsonArray.push(
+      <Cmd />
+    )
+  }
   return appJsonArray
 }
 
