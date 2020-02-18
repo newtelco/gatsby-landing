@@ -66,7 +66,8 @@ export default class Cmd extends React.Component {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${btoa(`${TOGGL_TOKEN}:api_token`)}`
+        'Authorization': `Basic ${btoa(`${TOGGL_TOKEN}:api_token`)}`,
+        'Access-Control-Allow-Origin': 'https://home.newtelco.de'
       }),
       body: JSON.stringify({
         time_entry: {
