@@ -127,7 +127,7 @@ export default class Modal extends React.Component {
           <ModalBody>
             <Content>Please input your Toggl API key</Content>
             <Input autoFocus onChange={this.inputChange} value={inputValue} />
-            <Helper>If you do not have a key yet, please go <a target='_blank' rel='noopener' href='https://toggl.com/app/profile'>here</a></Helper>
+            <Helper>If you do not have a key yet, please go <a target='_blank' rel="noopener noreferrer" href='https://toggl.com/app/profile'>here</a></Helper>
           </ModalBody>
           <Button onClick={this.saveInput}>Save</Button>
         </Wrapper>

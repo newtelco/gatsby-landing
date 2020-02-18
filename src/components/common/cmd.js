@@ -54,29 +54,14 @@ export default class Cmd extends React.Component {
     })
   }
 
-  togglStart = (data) => {
+  togglStart = () => {
     const TOGGL_TOKEN = window.localStorage.getItem('TOGGL_TOKEN')
     if (!TOGGL_TOKEN) {
       this.setState({
         showModal: true
       })
     }
-    const url = `https://www.toggl.com/api/v8/time_entries/start`
-    fetch(url, {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': `Basic ${btoa(`${TOGGL_TOKEN}:api_token`)}`,
-        'Access-Control-Allow-Origin': 'https://home.newtelco.de'
-      }),
-      body: JSON.stringify({
-        time_entry: {
-          description: 'Newtelco - Work',
-          tags: ["Newtelco", "AutoAdded"],
-          created_with: 'Newtelco Home'
-        }
-      })
-    })
+    fetch(`https://nt-toggl.newtelco.workers.dev/?key=${TOGGL_TOKEN}&action=start`)
       .then(resp => resp.json())
       .then(data => {
         console.log('Start R1', data)
@@ -84,37 +69,17 @@ export default class Cmd extends React.Component {
       .catch(err => console.error(err))
   }
 
-  togglEnd = (data) => {
+  togglEnd = () => {
     const TOGGL_TOKEN = window.localStorage.getItem('TOGGL_TOKEN')
     if (!TOGGL_TOKEN) {
       this.setState({
         showModal: true
       })
     }
-    const url = `https://www.toggl.com/api/v8/time_entries/current`
-    fetch(url, {
-      method: 'GET',
-      headers: new Headers({
-        'Authorization': `Basic ${btoa(`${TOGGL_TOKEN}:api_token`)}`
-      })
-    })
+    fetch(`https://nt-toggl.newtelco.workers.dev/?key=${TOGGL_TOKEN}&action=stop`)
       .then(resp => resp.json())
       .then(data => {
         console.log('Stop R1', data)
-        const currentId = data.data.id
-        const url = `https://www.toggl.com/api/v8/time_entries/${currentId}/stop`
-        fetch(url, {
-          method: 'PUT',
-          headers: new Headers({
-            'Content-Type': 'application/json',
-            'Authorization': `Basic ${btoa(`${TOGGL_TOKEN}:api_token`)}`
-          })
-        })
-          .then(resp => resp.json())
-          .then(data2 => {
-            console.log('Stop R2', data2)
-          })
-          .catch(err => console.error(err))
       })
       .catch(err => console.error(err))
   }
