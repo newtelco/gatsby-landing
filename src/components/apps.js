@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { GlobalHotKeys } from 'react-hotkeys'
 import styled from 'styled-components'
 import AppPanel from './panels/app-panel'
 import Cmd from './common/cmd'
@@ -52,11 +53,14 @@ const getIcon = category => {
   }
 }
 
-const getCategoryLabels = data => {
+const getCategoryLabels = (data) => {
   const appJsonArray = []
-  data.allAppsJson.edges.forEach(item => {
+  data.allAppsJson.edges.forEach((item, index) => {
     appJsonArray.push(
-      <Tab key={item.node.category}>
+      <Tab
+        index={index}
+        key={item.node.category}
+      >
         <Tooltip
           title={item.node.category}
           position='top'
@@ -102,34 +106,50 @@ const tabsStyle = {
   top: '0'
 }
 
-const Apps = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query AppsQuery {
-        allAppsJson {
-          edges {
-            node {
-              category
-              apps {
-                name
-                url
+const Apps = () => {
+  const [index, setIndex] = useState(0)
+  const keyMap = {
+    INDEX1: '1',
+    INDEX2: '2',
+    INDEX3: '3'
+  }
+  const handlers = {
+    INDEX1: () => setIndex(0),
+    INDEX2: () => setIndex(1),
+    INDEX3: () => setIndex(2)
+  }
+
+  return (
+    <StaticQuery
+      query={graphql`
+          query AppsQuery {
+            allAppsJson {
+              edges {
+                node {
+                  category
+                  apps {
+                    name
+                    url
+                  }
+                }
               }
             }
           }
-        }
-      }
-    `}
-    render={data => {
-      return (
-        <Wrapper>
-          <Tabs style={tabsStyle} defaultIndex={0}>
-            <TabList>{getCategoryLabels(data)}</TabList>
-            {getCategoryApps(data)}
-          </Tabs>
-        </Wrapper>
-      )
-    }}
-  />
-)
+        `}
+      render={data => {
+        return (
+          <GlobalHotKeys keyMap={keyMap} handlers={handlers}>
+            <Wrapper>
+              <Tabs style={tabsStyle} defaultIndex={0} onSelect={tabIndex => setIndex(tabIndex)} selectedIndex={index}>
+                <TabList>{getCategoryLabels(data)}</TabList>
+                {getCategoryApps(data)}
+              </Tabs>
+            </Wrapper>
+          </GlobalHotKeys>
+        )
+      }}
+    />
+  )
+}
 
 export default Apps

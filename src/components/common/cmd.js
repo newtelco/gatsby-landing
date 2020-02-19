@@ -7,7 +7,8 @@ import { faTrello } from '@fortawesome/free-brands-svg-icons'
 import Modal from './modal'
 
 function renderSuggestion(suggestion) {
-  const { id, color, name } = suggestion;
+  // const { id, color, name } = suggestion;
+  const { name } = suggestion;
   return (
     <div
       style={{
@@ -85,7 +86,7 @@ export default class Cmd extends React.Component {
   }
 
   createTrelloCard = () => {
-    const url = 'https://trello.com/add-card' + '?source=' + window.location.host + '&mode=popup' + '&url=' + encodeURIComponent(window.location.href) + '&idList=5c67128006d9580f33786ba8' + '&width=500,height=600,left=' + (window.screenX + (window.outerWidth - 500) / 2) + ',top=' + (window.screenY + (window.outerHeight - 740) / 2)
+    const url = 'https://trello.com/add-card?source=' + window.location.host + '&mode=popup&url=' + encodeURIComponent(window.location.href) + '&idList=5c67128006d9580f33786ba8&width=500,height=600,left=' + (window.screenX + (window.outerWidth - 500) / 2) + ',top=' + (window.screenY + (window.outerHeight - 740) / 2)
     window.open(url)
   }
 
