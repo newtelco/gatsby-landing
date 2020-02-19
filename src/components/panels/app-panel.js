@@ -90,7 +90,7 @@ const Wrapper = styled.div`
   @media (max-height: 768px) {
     height: 100px;
     width: 100px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 `
 

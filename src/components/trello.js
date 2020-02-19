@@ -4,15 +4,17 @@ import { TrelloClient } from 'trello.ts'
 import Marquee from 'react-double-marquee'
 
 const TrelloCard = styled.div`
-  height: 20px;
-  width: 200px;
   display: inline;
   color: rgba(255, 255, 255, 0.4);
   margin: 0px 110px;
   white-space: nowrap;
-  border: 3px dashed rgba(255, 255, 255, 0.1);
+  border: 2px dashed rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   padding: 10px;
+  @media (max-height: 768px) {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
 `
 
 const TrelloLink = styled.a`
@@ -41,7 +43,7 @@ const TrelloPlaceholder = styled.div`
 `
 
 class CardsContainer extends React.Component {
-  render () {
+  render() {
     if (this.props.cards.length > 0) {
       return (
         this.props.cards.map((card) => (
@@ -69,14 +71,14 @@ class CardsContainer extends React.Component {
 }
 
 class TrelloWrapper extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       cards: []
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // const publicIp = window.location.referer
     fetch('https://wtfismyip.com/json')
       .then(resp => resp.json())
@@ -92,7 +94,7 @@ class TrelloWrapper extends React.Component {
       .catch(err => console.error(err))
   }
 
-  fetchCards () {
+  fetchCards() {
     const client = new TrelloClient({
       key: process.env.GATSBY_TRELLO_API,
       token: process.env.GATSBY_TRELLO_TOKEN,
@@ -117,7 +119,7 @@ class TrelloWrapper extends React.Component {
       })
   }
 
-  render () {
+  render() {
     const {
       cards
     } = this.state
