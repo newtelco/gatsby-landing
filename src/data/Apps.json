@@ -24,7 +24,7 @@
       },
       {
         "name": "Passwords",
-        "url": "https://bitwarden.newtelco.dev/#/vault"
+        "url": "https://pw.newtelco.de"
       },
       {
         "name": "Racks",
@@ -107,3 +107,4 @@
     ]
   }
 ]
+
