@@ -70,14 +70,16 @@ const Link = styled.a`
 `
 
 const AppPanel = (props) => {
-  const elems = document.querySelectorAll('#tilt')
-  UniversalTilt.init({
-    elements: elems,
-    settings: {
-      scale: 1.2,
-      reverse: true
-    }
-  })
+  if (typeof window !== 'undefined') {
+    const elems = document.querySelectorAll('#tilt')
+    UniversalTilt.init({
+      elements: elems,
+      settings: {
+        scale: 1.2,
+        reverse: true
+      }
+    })
+  }
   return (
     <Link target='_blank' href={props.app.url}>
       <Wrapper id='tilt' style={{ transformStyle: 'preserve-3d' }}>
