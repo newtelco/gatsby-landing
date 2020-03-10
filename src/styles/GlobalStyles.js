@@ -69,6 +69,9 @@ const GlobalStyles = createGlobalStyle`
     p {
       ${props => props.theme.font_size.small};
     }
+    body {
+      overflow-y: scroll;
+    }
   }
 
   @media (max-width: ${props => props.theme.screen.xs}) {

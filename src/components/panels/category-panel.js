@@ -11,6 +11,10 @@ const Wrapper = styled.div`
   justify-content: flex-end;
   flex-direction: column;
   border:2px solid #fff;
+  @media (max-width: 768px) {
+    width: 95%;
+    font-size: 1rem;
+  }
 `
 
 const CategoryPanel = (props) => {

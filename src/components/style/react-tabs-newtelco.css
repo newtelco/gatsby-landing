@@ -87,25 +87,17 @@
 
 @media only screen and (max-width: 768px) {
   .react-tabs__tab-panel.react-tabs__tab-panel--selected {
-    width: 225%;
-    transform: translateX(-28%);
-    margin-bottom: 50px;
-  }
-}
-
-@media only screen and (max-height: 768px) {
-  .react-tabs__tab-panel.react-tabs__tab-panel--selected {
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 50px;
     padding: 10px;
-    width: 450px;
+    width: calc(100% - 100px);
   }
   .react-tabs__tab-list {
-    width: 450px;
+    width: 100%;
+    padding: 0 50px;
   }
   .react-tabs__tab {
-    width: 90px;
-    height: 90px;
+    width: calc( 100% / 3.2);
+    height: calc( 100% / 3.2);
   }
 }
 

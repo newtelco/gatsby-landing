@@ -28,9 +28,8 @@ const Wrapper = styled.div`
   height: 80vh;
   @media (max-width: 768px) {
     min-width: unset;
-  }
-  @media (max-height: 768px) {
-    height: 65vh;
+    width: 100%;
+    height: 100vh;
     margin: 15px;
     margin-top: -5%;
   }
@@ -38,6 +37,12 @@ const Wrapper = styled.div`
 
 const AppWrapper = styled.div`
   display: inline-block;
+  @media (max-width: 768px) {
+    margin: 10px;
+    height: calc( 100vw / 2 - 100px );
+    width: calc( 100vw / 2 - 100px );
+    font-size: 0.9rem;
+  }
 `
 
 const getIcon = category => {
@@ -77,7 +82,7 @@ const getCategoryLabels = (data) => {
       </Tab>
     )
   })
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && window.innerWidth > 768) {
     appJsonArray.push(
       <Cmd />
     )

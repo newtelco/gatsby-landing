@@ -22,6 +22,9 @@ const ForecastWrapper = styled.div`
   flex-wrap: nowrap;
   max-width: 450px;
   color: #fff;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const DateTempWrapper = styled.span`
@@ -47,6 +50,10 @@ const DayWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px;
+  @media (max-width: 768px) {
+    margin: 15px;
+    font-size: 1rem;
+  }
 `
 
 const CurrentWrapper = styled.div`

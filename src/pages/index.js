@@ -20,30 +20,28 @@ const Wrapper = styled.div`
 
 const IndexPage = () => {
   return (
-    <>
+    <Layout>
       <Particles
         style={{
           position: 'absolute'
         }}
       />
-      <Layout>
-        <Wrapper>
-          <div
-            style={{
-              height: '90vh',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between'
-            }}
-          >
-            <Header />
-            <WeatherWidget />
-          </div>
-          <Apps />
-        </Wrapper>
-        <TrelloWrapper />
-      </Layout>
-    </>
+      <Wrapper>
+        <div
+          style={{
+            height: '90vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Header />
+          <WeatherWidget />
+        </div>
+        <Apps />
+      </Wrapper>
+      <TrelloWrapper />
+    </Layout>
   )
 }
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Tilt from 'react-parallax-tilt'
+import UniversalTilt from 'universal-tilt.js'
+
+// import Tilt from 'react-parallax-tilt'
 
 const Wrapper = styled.div`
   width: 130px;
@@ -16,11 +18,7 @@ const Wrapper = styled.div`
   font-size: 1.2rem;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-weight: 100;
-
-  &:hover {
-    transform: translateY(-5px);
-    transition: all 150ms linear;
-  }
+  transition: color 0.25s;
 
   &::before, &::after {
     box-sizing: inherit;
@@ -29,68 +27,34 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 10px;
-  }
-
-
-  & {
-    transition: color 0.25s;
-  }
-  &::before, &::after {
     border: 4px solid transparent;
     border-radius: 10px;
     width: 0;
     height: 0;
-  }
-  &::before {
     top: 0;
     left: 0;
   }
-  &::after {
-    bottom: 0;
-    right: 0;
-  }
   &:hover {
-    color: #60daaa;
+    color: #fff;
   }
   &:hover::before, &:hover::after {
     width: 100%;
     height: 100%;
-  }
-  &:hover::before {
-    border-top-color: #60daaa;
-    border-right-color: #60daaa;
     border-radius: 10px;
-    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
-  }
-  &:hover::after {
-    border-bottom-color: #60daaa;
-    border-left-color: #60daaa;
-    border-radius: 10px;
-    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
-  }
-
-  &:hover {
-    color: #fff;
-  }
-  &::after {
-    top: 0;
-    left: 0;
   }
   &:hover::before {
     border-top-color: #fff;
-    border-radius: 10px;
     border-right-color: #fff;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
   }
   &:hover::after {
     border-bottom-color: #fff;
-    border-radius: 10px;
     border-left-color: #fff;
     transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
   }
-  @media (max-height: 768px) {
-    height: 100px;
-    width: 100px;
-    font-size: 0.9rem;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
   }
 `
 
@@ -99,21 +63,28 @@ const Link = styled.a`
   color: #fff;
   display: inline-block;
   transition: all 150ms linear;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const AppPanel = (props) => {
+  const elems = document.querySelectorAll('#tilt')
+  UniversalTilt.init({
+    elements: elems,
+    settings: {
+      scale: 1.2,
+      reverse: true
+    }
+  })
   return (
     <Link target='_blank' href={props.app.url}>
-      <Tilt
-        tiltReverse
-        tiltMaxAngleX={15}
-        tiltMaxAngleY={15}
-        gyroscope
-      >
-        <Wrapper>
+      <Wrapper id='tilt' style={{ transformStyle: 'preserve-3d' }}>
+        <span style={{ transform: 'translateZ(20px)' }}>
           {props.app.name}
-        </Wrapper>
-      </Tilt>
+        </span>
+      </Wrapper>
     </Link>
   )
 }
