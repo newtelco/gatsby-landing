@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import { GlobalHotKeys } from 'react-hotkeys'
 import styled from 'styled-components'
 import AppPanel from './panels/app-panel'
-import Cmd from './common/cmd'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 import './style/react-tabs-newtelco.css'
@@ -15,6 +14,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
+
+const clientSideCmd = React.lazy(() =>
+  import('./common/cmd')
+)
+const isSSR = typeof window === 'undefined'
 
 const Wrapper = styled.div`
   position: relative;
@@ -82,12 +86,12 @@ const getCategoryLabels = (data) => {
       </Tab>
     )
   })
-  if (typeof window !== 'undefined') {
-    if (window.innerWidth > 768) {
-      appJsonArray.push(
-        <Cmd />
-      )
-    }
+  if (!isSSR && window.innerWidth > 768) {
+    appJsonArray.push(
+      <React.Suspense fallback={<div />}>
+        <clientSideCmd />
+      </React.Suspense>
+    )
   }
   return appJsonArray
 }
