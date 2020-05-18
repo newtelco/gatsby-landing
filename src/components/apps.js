@@ -12,8 +12,7 @@ import {
   faBriefcase,
   faCalculator
 } from '@fortawesome/free-solid-svg-icons'
-import { Tooltip } from 'react-tippy'
-import 'react-tippy/dist/tippy.css'
+import ReactTooltip from 'react-tooltip'
 
 const clientSideCmd = React.lazy(() =>
   import('./common/cmd')
@@ -69,20 +68,11 @@ const getCategoryLabels = (data) => {
       <Tab
         index={index}
         key={item.node.category}
+        data-tip={item.node.category}
+        data-effect='solid'
+        data-type='dark'
       >
-        <Tooltip
-          title={item.node.category}
-          position='top'
-          trigger='mouseenter focus click'
-          animation='perspective'
-          transitionFlip
-          distance={55}
-          delay={5}
-          hideDelay={20}
-          theme='transparent'
-        >
-          {getIcon(item.node.category)}
-        </Tooltip>
+        {getIcon(item.node.category)}
       </Tab>
     )
   })
@@ -156,6 +146,7 @@ const Apps = () => {
                 {getCategoryApps(data)}
               </Tabs>
             </Wrapper>
+            <ReactTooltip />
           </GlobalHotKeys>
         )
       }}
