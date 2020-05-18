@@ -70,7 +70,7 @@ const Link = styled.a`
 `
 
 const AppPanel = (props) => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     const elems = document.querySelectorAll('#tilt')
     UniversalTilt.init({
       elements: elems,

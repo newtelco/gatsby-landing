@@ -12,8 +12,11 @@ import {
   faBriefcase,
   faCalculator
 } from '@fortawesome/free-solid-svg-icons'
-import ReactTooltip from 'react-tooltip'
+// import Tooltip from './common/tooltip'
 
+const Tooltip = React.lazy(() =>
+  import('./common/tooltip')
+)
 const clientSideCmd = React.lazy(() =>
   import('./common/cmd')
 )
@@ -146,7 +149,9 @@ const Apps = () => {
                 {getCategoryApps(data)}
               </Tabs>
             </Wrapper>
-            <ReactTooltip />
+            <React.Suspense fallback={<div />}>
+              <Tooltip />
+            </React.Suspense>
           </GlobalHotKeys>
         )
       }}
