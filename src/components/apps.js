@@ -20,7 +20,7 @@ const Tooltip = React.lazy(() =>
 const clientSideCmd = React.lazy(() =>
   import('./common/cmd')
 )
-const isSSR = typeof window === 'undefined'
+const isSSR = typeof window === 'undefined' && typeof document === 'undefined'
 
 const Wrapper = styled.div`
   position: relative;
@@ -149,9 +149,9 @@ const Apps = () => {
                 {getCategoryApps(data)}
               </Tabs>
             </Wrapper>
-            <React.Suspense fallback={<div />}>
+            {!isSSR && (
               <Tooltip />
-            </React.Suspense>
+            )}
           </GlobalHotKeys>
         )
       }}
