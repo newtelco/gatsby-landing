@@ -12,16 +12,14 @@ import {
   faBriefcase,
   faCalculator
 } from '@fortawesome/free-solid-svg-icons'
-// import Tooltip from './common/tooltip'
-import Loadable from "@loadable/component"
+import Loadable from '@loadable/component'
 
 const Tooltip = Loadable(() =>
   import('./common/tooltip')
 )
-const clientSideCmd = Loadable(() =>
+const CmdPalette = Loadable(() =>
   import('./common/cmd')
 )
-const isSSR = typeof window === 'undefined' && typeof document === 'undefined'
 
 const Wrapper = styled.div`
   position: relative;
@@ -80,13 +78,13 @@ const getCategoryLabels = (data) => {
       </Tab>
     )
   })
-  if (!isSSR && window.innerWidth > 768) {
-    appJsonArray.push(
-      <React.Suspense fallback={<div />}>
-        <clientSideCmd />
-      </React.Suspense>
-    )
-  }
+  appJsonArray.push(
+    <CmdPalette
+      data-tip='Cmds'
+      data-effect='solid'
+      data-type='dark'
+    />
+  )
   return appJsonArray
 }
 
@@ -145,14 +143,12 @@ const Apps = () => {
         return (
           <GlobalHotKeys keyMap={keyMap} handlers={handlers}>
             <Wrapper>
-              <Tabs style={tabsStyle} defaultIndex={0} onSelect={tabIndex => setIndex(tabIndex)} selectedIndex={index}>
+              <Tabs style={tabsStyle} onSelect={tabIndex => setIndex(tabIndex)} selectedIndex={index}>
                 <TabList>{getCategoryLabels(data)}</TabList>
                 {getCategoryApps(data)}
               </Tabs>
             </Wrapper>
-            {!isSSR && (
-              <Tooltip />
-            )}
+            <Tooltip />
           </GlobalHotKeys>
         )
       }}
