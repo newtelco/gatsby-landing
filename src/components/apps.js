@@ -13,11 +13,12 @@ import {
   faCalculator
 } from '@fortawesome/free-solid-svg-icons'
 // import Tooltip from './common/tooltip'
+import Loadable from "@loadable/component"
 
-const Tooltip = React.lazy(() =>
+const Tooltip = Loadable(() =>
   import('./common/tooltip')
 )
-const clientSideCmd = React.lazy(() =>
+const clientSideCmd = Loadable(() =>
   import('./common/cmd')
 )
 const isSSR = typeof window === 'undefined' && typeof document === 'undefined'
