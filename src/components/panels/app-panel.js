@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import UniversalTilt from 'universal-tilt.js'
-
-// import Tilt from 'react-parallax-tilt'
 
 const Wrapper = styled.div`
   width: 130px;
@@ -70,16 +68,19 @@ const Link = styled.a`
 `
 
 const AppPanel = (props) => {
-  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-    const elems = document.querySelectorAll('#tilt')
-    UniversalTilt.init({
-      elements: elems,
-      settings: {
-        scale: 1.2,
-        reverse: true
-      }
-    })
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      const elems = document.querySelectorAll('#tilt')
+      UniversalTilt.init({
+        elements: elems,
+        settings: {
+          scale: 1.2,
+          reverse: true
+        }
+      })
+    }
+  }, [window])
+
   return (
     <Link target='_blank' href={props.app.url}>
       <Wrapper id='tilt' style={{ transformStyle: 'preserve-3d' }}>
