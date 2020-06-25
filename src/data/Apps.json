@@ -103,7 +103,12 @@
       {
         "name": "MKS Sharepoint",
         "url": "https://mksag.sharepoint.com/:o:/s/MKS-Projekte/EiSPvNMMKctNmT9yEx5lDoYBT_1ib71mZe4ouvatQq5dDw?e=EKxcRm"
+      },
+      {
+        "name": "Mgmt Dashboard",
+        "url": "https://redash.newtelco.dev"
       }
     ]
   }
 ]
+
