@@ -8,7 +8,7 @@ const TrelloCard = styled.div`
   color: rgba(255, 255, 255, 0.4);
   margin: 0px 110px;
   white-space: nowrap;
-  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border: 2px dotted rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   padding: 10px;
   @media (max-height: 768px) {
@@ -28,7 +28,7 @@ const TrelloLabel = styled.div`
   background: ${props => props.color};
   height: 25px;
   width: 100px;
-  opacity: 0.2;
+  opacity: 0.4;
   border-radius: 5px;
   display: inline-flex;
   justify-content: center;
@@ -43,7 +43,7 @@ const TrelloPlaceholder = styled.div`
 `
 
 class CardsContainer extends React.Component {
-  render() {
+  render () {
     if (this.props.cards.length > 0) {
       return (
         this.props.cards.map((card) => (
@@ -71,20 +71,20 @@ class CardsContainer extends React.Component {
 }
 
 class TrelloWrapper extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       cards: []
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     // const publicIp = window.location.referer
     fetch('https://wtfismyip.com/json')
       .then(resp => resp.json())
       .then(data => {
         const IP = data.YourFuckingIPAddress
-        if (IP === '94.249.131.6') {
+        if (IP === '94.249.131.6' || process.env.NODE_ENV === 'development') {
           if (this.state.cards.length === 0) this.fetchCards()
           if (this.state.cards.length !== 0) this.fetchLabels()
         } else {
@@ -94,7 +94,7 @@ class TrelloWrapper extends React.Component {
       .catch(err => console.error(err))
   }
 
-  fetchCards() {
+  fetchCards () {
     const client = new TrelloClient({
       key: process.env.GATSBY_TRELLO_API,
       token: process.env.GATSBY_TRELLO_TOKEN,
@@ -119,7 +119,7 @@ class TrelloWrapper extends React.Component {
       })
   }
 
-  render() {
+  render () {
     const {
       cards
     } = this.state
