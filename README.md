@@ -7,13 +7,11 @@
 
 Static Company intranet page for NewTelco GmbH. 
 
-> Based on [Gatsby](https://gatsbyjs.org), hosted on [Netlify](https://netlify.com)
+Based on [Gatsby](https://gatsbyjs.org), hosted on [Netlify](https://netlify.com)
 
 Available via:  
 - [home.newtelco.de](https://home.newtelco.de)  
 - [home.newtelco.dev](https://home.newtelco.dev) (**STAGING**)  
-
-> @Newtelco Colleagues, if you have any requests / bug reports - please simply open an issue or create a Trello task
 
 ## Features
 
