@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const BlackOut = styled.div`
   position: fixed;
@@ -7,7 +7,7 @@ const BlackOut = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
 `
 
@@ -88,7 +88,7 @@ const Button = styled.button`
   transition: box-shadow 250ms ease-in-out;
 
   &:hover {
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
   }
 `
 
@@ -96,12 +96,12 @@ export default class Modal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      inputValue: ''
+      inputValue: "",
     }
   }
 
   saveInput = (e) => {
-    e && window.localStorage.setItem('TOGGL_TOKEN', this.state.inputValue)
+    e && window.localStorage.setItem("TOGGL_TOKEN", this.state.inputValue)
     this.props.close()
   }
 
@@ -109,25 +109,30 @@ export default class Modal extends React.Component {
     console.log(e.target)
     console.log(e.target.value)
     this.setState({
-      inputValue: e.target.value
+      inputValue: e.target.value,
     })
   }
 
   render() {
-    const {
-      inputValue
-    } = this.state
+    const { inputValue } = this.state
 
     return (
       <BlackOut onClick={() => this.props.close()}>
-        <Wrapper onClick={e => e.stopPropagation()}>
-          <Header>
-            Missing Key
-          </Header>
+        <Wrapper onClick={(e) => e.stopPropagation()}>
+          <Header>Missing Key</Header>
           <ModalBody>
             <Content>Please input your Toggl API key</Content>
-            <Input autoFocus onChange={this.inputChange} value={inputValue} />
-            <Helper style={{ color: '#9e9e9e' }}>If you do not have a key yet, please go <a target='_blank' rel="noopener noreferrer" href='https://toggl.com/app/profile'>here</a></Helper>
+            <Input onChange={this.inputChange} value={inputValue} />
+            <Helper style={{ color: "#9e9e9e" }}>
+              If you do not have a key yet, please go{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://toggl.com/app/profile"
+              >
+                here
+              </a>
+            </Helper>
           </ModalBody>
           <Button onClick={this.saveInput}>Save</Button>
         </Wrapper>
