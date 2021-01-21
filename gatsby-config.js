@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Newtelco Landing",
+    title: "Newtelco Home",
     description: "Homepage for Newtelco Intranet",
-    author: "Nico Domino",
+    author: "ndom91 <ndomino@newtelco.de>",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -12,17 +12,6 @@ module.exports = {
       options: {
         name: "apps",
         path: `${__dirname}/src/images/apps`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-prefetch-google-fonts",
-      options: {
-        fonts: [
-          {
-            family: "Open Sans",
-            variants: ["300", "400", "700"],
-          },
-        ],
       },
     },
     "gatsby-transformer-sharp",
