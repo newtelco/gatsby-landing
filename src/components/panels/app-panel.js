@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   justify-content: center;
   text-align: center;
   font-size: 1.2rem;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'HK Grotesk Light', Arial, Helvetica, sans-serif;
   font-weight: 100;
   transition: color 0.25s;
 
@@ -79,7 +79,7 @@ const AppPanel = (props) => {
         }
       })
     }
-  }, [window])
+  }, [])
 
   return (
     <Link target='_blank' href={props.app.url}>

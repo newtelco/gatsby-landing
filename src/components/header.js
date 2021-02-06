@@ -1,13 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from '../../src/images/nt-128.png'
+import Logo from '../../src/images/header_icon.png'
 
 const Wrapper = styled.div`
   display: flex;
   color: #fff;
-  font-size: 1.2rem;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  font-weight: 300;
   @media (max-width: 768px) {
     width: 80%;
   }

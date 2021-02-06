@@ -7,13 +7,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "apps",
-        path: `${__dirname}/src/images/apps`,
-      },
-    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
@@ -25,7 +18,7 @@ module.exports = {
         background_color: "#575757",
         theme_color: "#575757",
         display: "standalone",
-        icon: "src/images/icon-144x144.png",
+        icon: "src/images/favicon.png",
       },
     },
     "gatsby-transformer-json",

@@ -92,7 +92,7 @@ const getCategoryApps = data => {
   const appJsonArray = []
   data.allAppsJson.edges.forEach(item => {
     appJsonArray.push(
-      <TabPanel>
+      <TabPanel key={item.node.category}>
         {item.node.apps.map(app => (
           <AppWrapper key={app.name}>
             <AppPanel app={app} />

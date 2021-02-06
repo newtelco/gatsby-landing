@@ -36,8 +36,8 @@ const DateTempWrapper = styled.span`
   width: 60px;
 
   font-size: 1.2rem;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  font-weight: 300;
+  font-family: 'HK Grotesk Light', Arial, Helvetica, sans-serif;
+  font-weight: 100;
 
   @media (max-width: 768px) {
     padding: 5px;
