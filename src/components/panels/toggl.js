@@ -8,22 +8,18 @@ class Toggl extends React.Component {
     return (
       <Tab key="Toggl" data-tip="Cmd" data-effect="solid" data-type="dark">
         <svg
+          xmlns="http://www.w3.org/2000/svg"
           width="48"
           height="48"
-          viewBox="0 0 24 24"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
           <path
-            d="M5.0333 14.8284L6.44751 16.2426L10.6902 12L6.44751 7.75733L5.0333 9.17155L7.86172 12L5.0333 14.8284Z"
-            fill="currentColor"
-          />
-          <path d="M15 14H11V16H15V14Z" fill="currentColor" />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M2 2C0.895431 2 0 2.89543 0 4V20C0 21.1046 0.89543 22 2 22H22C23.1046 22 24 21.1046 24 20V4C24 2.89543 23.1046 2 22 2H2ZM22 4H2L2 20H22V4Z"
-            fill="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
           />
         </svg>
       </Tab>

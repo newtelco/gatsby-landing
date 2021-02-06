@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import AppPanel from './apppanel'
+import React from "react"
+import styled from "styled-components"
+import AppPanel from "./apppanel"
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  border:2px solid #fff;
   @media (max-width: 768px) {
     width: 95%;
     font-size: 1rem;
@@ -20,7 +19,7 @@ const Wrapper = styled.div`
 const CategoryPanel = (props) => {
   return (
     <Wrapper>
-      {props.apps.map(app => {
+      {props.apps.map((app) => {
         return <AppPanel key={app.name} app={app} />
       })}
     </Wrapper>

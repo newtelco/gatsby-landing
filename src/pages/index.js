@@ -18,14 +18,18 @@ const Wrapper = styled.div`
   }
 `
 
+const Background = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/bg.svg);
+  background-size: cover;
+  opacity: 0.05;
+`
+
 const IndexPage = () => {
   return (
     <Layout>
-      {/* <Particles
-        style={{
-          position: 'absolute'
-        }}
-      /> */}
       <Wrapper>
         <div
           style={{

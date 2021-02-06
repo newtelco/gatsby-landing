@@ -24,9 +24,9 @@
 
 .react-tabs__tab:not(.react-tabs__tab--selected) {
   background-color: transparent;
-  border-radius: 20px;
-  border: 5px solid #fff;
-
+  border-radius: 5px;
+  border: 1px solid #424b64;
+  background: #141824;
   transition: all 250ms ease-in-out;
 }
 
@@ -52,8 +52,10 @@
 
 .react-tabs__tab.react-tabs__tab--selected {
   background-color: transparent;
-  border-radius: 20px 20px 0px 0px;
-  border: 5px solid #fff;
+  border: 1px solid #424b64;
+  background: #141824;
+  transition: transform 250ms ease-in-out;
+  transform: translateY(10px);
 }
 
 .react-tabs__tab-panel--selected {
@@ -67,7 +69,7 @@
 
 .react-tabs__tab-panel.react-tabs__tab-panel--selected {
   margin-top: 40px;
-  border: 3px solid rgba(255,255,255,0.1);
+  border: 1px solid #424b64;
   padding: 20px;
   border-radius: 10px;
 }
@@ -75,13 +77,11 @@
 @keyframes fade-and-slide-in {
   0% {
     opacity: 0;
-    transform: translateX(27%),
-               translateY(-27%);
+    transform: translateX(27%), translateY(-27%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0),
-               translateY(0);
+    transform: translateX(0), translateY(0);
   }
 }
 
@@ -96,8 +96,8 @@
     padding: 0 50px;
   }
   .react-tabs__tab {
-    width: calc( 100% / 3.2);
-    height: calc( 100% / 3.2);
+    width: calc(100% / 3.2);
+    height: calc(100% / 3.2);
   }
 }
 
