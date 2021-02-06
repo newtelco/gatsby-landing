@@ -2,7 +2,7 @@
   "name": "newtelco-landing-gatsby",
   "private": true,
   "description": "Landing Page for Newtelco Internal Use",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Nico Domino <yo@ndo.dev>",
   "scripts": {
     "build": "gatsby build",
@@ -26,10 +26,6 @@
     "url": "https://git.newtelco.dev/ndomino/gatsby-landing/issues"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-brands-svg-icons": "^5.15.2",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/react-fontawesome": "^0.1.14",
     "@loadable/component": "^5.14.1",
     "gatsby": "^2.32.3",
     "gatsby-image": "^2.11.0",
@@ -44,7 +40,6 @@
     "gatsby-transformer-sharp": "^2.12.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-animated-weather": "^4.0.1",
     "react-command-palette": "^0.13.1-0",
     "react-dom": "^17.0.1",
@@ -53,8 +48,6 @@
     "react-hotkeys": "^2.0.0",
     "react-parallax-tilt": "^1.4.78",
     "react-particles-js": "^3.4.1",
-    "react-scrollspy": "^3.4.3",
-    "react-smooth-marquee": "^1.0.0",
     "react-tabs": "^3.1.2",
     "react-tooltip": "^4.2.13",
     "styled-components": "^5.2.1",
@@ -63,7 +56,6 @@
     "universal-tilt.js": "^2.0.6"
   },
   "devDependencies": {
-    "prettier": "^2.2.1",
-    "standard": "^16.0.3"
+    "prettier": "^2.2.1"
   }
 }

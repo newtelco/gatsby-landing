@@ -1,11 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import Layout from '../components/common/layout/layout'
-import Apps from '../components/apps'
-import Header from '../components/header'
-import WeatherWidget from '../components/weather'
-import Particles from 'react-particles-js'
-import TrelloWrapper from '../components/trello'
+import React from "react"
+import styled from "styled-components"
+import Layout from "../components/common/layout/layout"
+import Apps from "../components/apps"
+import Header from "../components/header"
+import WeatherWidget from "../components/weather"
+// import Particles from 'react-particles-js'
+import TrelloWrapper from "../components/trello"
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,18 +21,18 @@ const Wrapper = styled.div`
 const IndexPage = () => {
   return (
     <Layout>
-      <Particles
+      {/* <Particles
         style={{
           position: 'absolute'
         }}
-      />
+      /> */}
       <Wrapper>
         <div
           style={{
-            height: '90vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between'
+            height: "90vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
           }}
         >
           <Header />
