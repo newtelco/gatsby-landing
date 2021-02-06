@@ -2,14 +2,14 @@
 
 const theme = {
   font: {
-    primary: "'HK Grotesk Normal'",
-    secondary: "'HK Grotesk Medium'",
-    light: "'HK Grotesk Light'",
-    normal: "'HK Grotesk Normal'",
-    medium: "'HK Grotesk Medium'",
-    semibold: "'HK Grotesk Semibold'",
-    bold: "'HK Grotesk Bold'",
-    extrabold: "'HK Grotesk Extra Bold'",
+    primary: "Inconsolata",
+    secondary: "Inconsolata",
+    light: "Inconsolata",
+    normal: "Inconsolata",
+    medium: "Inconsolata",
+    semibold: "Inconsolata",
+    bold: "Inconsolata",
+    extrabold: "Inconsolata",
   },
   font_size: {
     xxxsmall: "font-size: 12px;",
@@ -23,7 +23,7 @@ const theme = {
   },
 
   color: {
-    primary: "#141824",
+    primary: "#0c090d",
     secondary: "#67b246",
     accent: "#cca86e",
     background: {

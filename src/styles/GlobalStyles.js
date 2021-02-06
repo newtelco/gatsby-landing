@@ -8,9 +8,8 @@ const GlobalStyles = createGlobalStyle`
   ${normalize};
 
   html {
-    ${""}
     color: ${(props) => props.theme.color.primary};
-
+    overflow: hidden;
   }
   
   body {
@@ -114,8 +113,29 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  html {
-    /* background-color: #343434; */
+  // Cmd Palette
+  .atom-trigger {
+    outline: none;
+  }
+
+  // Ticker
+  .ticker {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 60px;
+  }
+
+  .ticker__element {
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 98%;
+  }
+
+  .marquee-wrapper > div > div {
+    height: 60px;
+    margin-top: 15px;
   }
 `
 

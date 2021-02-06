@@ -1,54 +1,27 @@
+/* inconsolata-300 - latin */
 @font-face {
-  font-family: "HK Grotesk Extra Bold";
-  src: url("./HKGrotesk-ExtraBold.woff2") format("woff2"),
-    url("./HKGrotesk-ExtraBold.woff") format("woff");
-  /* font-weight: 800; */
+  font-family: "Inconsolata";
   font-style: normal;
+  font-weight: 300;
+  src: local(""), url("./inconsolata-v21-latin-300.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./inconsolata-v21-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
+/* inconsolata-regular - latin */
 @font-face {
-  font-family: "HK Grotesk Medium";
-  src: url("./HKGrotesk-Medium.woff2") format("woff2"),
-    url("./HKGrotesk-Medium.woff") format("woff");
+  font-family: "Inconsolata";
   font-style: normal;
+  font-weight: 400;
+  src: local(""), url("./inconsolata-v21-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./inconsolata-v21-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
+/* inconsolata-700 - latin */
 @font-face {
-  font-family: "HK Grotesk Normal";
-  src: url("./HKGrotesk-Regular.woff2") format("woff2"),
-    url("./HKGrotesk-Regular.woff") format("woff");
-  font-weight: normal;
+  font-family: "Inconsolata";
   font-style: normal;
-}
-
-@font-face {
-  font-family: "HK Grotesk Light";
-  src: url("./HKGrotesk-Light.woff2") format("woff2"),
-    url("./HKGrotesk-Light.woff") format("woff");
-  /* font-weight: 300; */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HK Grotesk Black";
-  src: url("./HKGrotesk-Black.woff2") format("woff2"),
-    url("./HKGrotesk-Black.woff") format("woff");
-  /* font-weight: 900; */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HK Grotesk Bold";
-  src: url("./HKGrotesk-Bold.woff2") format("woff2"),
-    url("./HKGrotesk-Bold.woff") format("woff");
-  /* font-weight: bold; */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "HK Grotesk Semibold";
-  src: url("./HKGrotesk-SemiBold.woff2") format("woff2"),
-    url("./HKGrotesk-SemiBold.woff") format("woff");
-  /* font-weight: 600; */
-  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("./inconsolata-v21-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./inconsolata-v21-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

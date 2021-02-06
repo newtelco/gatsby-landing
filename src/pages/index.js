@@ -24,7 +24,8 @@ const Background = styled.div`
   height: 100vh;
   background-image: url(/bg.svg);
   background-size: cover;
-  opacity: 0.05;
+  opacity: 0.2;
+  pointer-events: none;
 `
 
 const IndexPage = () => {
@@ -42,6 +43,7 @@ const IndexPage = () => {
           <Header />
           <WeatherWidget />
         </div>
+        <Background />
         <Apps />
       </Wrapper>
       <TrelloWrapper />

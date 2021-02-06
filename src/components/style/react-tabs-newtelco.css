@@ -15,11 +15,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: filter 250ms ease-in-out;
 }
 
 .react-tabs__tab:not(.react-tabs__tab--selected):hover {
   transform: translateY(-3px);
   transition: all 250ms ease-in-out;
+  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.2);
 }
 
 .react-tabs__tab:not(.react-tabs__tab--selected) {
@@ -28,6 +30,12 @@
   border: 1px solid #424b64;
   background: #141824;
   transition: all 250ms ease-in-out;
+
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .react-tabs__tab:focus {
@@ -51,11 +59,15 @@
 }
 
 .react-tabs__tab.react-tabs__tab--selected {
-  background-color: transparent;
-  border: 1px solid #424b64;
-  background: #141824;
+  border-radius: 5px;
   transition: transform 250ms ease-in-out;
   transform: translateY(10px);
+
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .react-tabs__tab-panel--selected {
@@ -65,13 +77,16 @@
   justify-content: center;
   flex-wrap: wrap;
   animation: fade-and-slide-in 500ms ease-in-out;
-}
-
-.react-tabs__tab-panel.react-tabs__tab-panel--selected {
   margin-top: 40px;
   border: 1px solid #424b64;
   padding: 20px;
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(203, 207, 252, 0.1);
+  backdrop-filter: blur(3px);
   border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 @keyframes fade-and-slide-in {
@@ -99,27 +114,4 @@
     width: calc(100% / 3.2);
     height: calc(100% / 3.2);
   }
-}
-
-.ticker {
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  bottom: 60px;
-}
-
-.ticker__element {
-  white-space: nowrap;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  width: 98%;
-}
-
-html {
-  overflow: hidden;
-}
-
-.marquee-wrapper > div > div {
-  height: 60px;
-  margin-top: 15px;
 }
