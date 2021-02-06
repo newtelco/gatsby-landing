@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import ReactAnimatedWeather from 'react-animated-weather'
+import React from "react"
+import styled from "styled-components"
+import ReactAnimatedWeather from "react-animated-weather"
 
 const Wrapper = styled.div`
   background-color: transparent;
@@ -8,6 +8,8 @@ const Wrapper = styled.div`
   margin: 20px;
   align-self: flex-end;
   min-width: 420px;
+  font-family: "Inconsolata", monospace;
+  font-weight: 300;
   @media (max-width: 768px) {
     min-width: unset;
     width: 85%;
@@ -36,7 +38,6 @@ const DateTempWrapper = styled.span`
   width: 60px;
 
   font-size: 1.2rem;
-  font-family: 'HK Grotesk Light', Arial, Helvetica, sans-serif;
   font-weight: 100;
 
   @media (max-width: 768px) {
@@ -59,6 +60,8 @@ const DayWrapper = styled.div`
 const CurrentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  color: #fff;
+  font-size: 1.2rem;
 `
 
 const CurrentTempWrapper = styled.div`
@@ -67,122 +70,111 @@ const CurrentTempWrapper = styled.div`
 `
 
 class WeatherWidget extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.iconRefs = []
     this.state = {
-      forecast: '',
+      forecast: "",
       current: {
-        icon: 'CLEAR_DAY',
+        icon: "CLEAR_DAY",
         apparentTemperature: 0.0,
-        summary: ''
-      }
+        summary: "",
+      },
     }
   }
 
-  componentDidMount () {
-    window.fetch('https://darksky.newtelco.workers.dev')
-      .then(res => res.json())
-      .then(data => {
+  componentDidMount() {
+    window
+      .fetch("https://darksky.newtelco.workers.dev")
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({
           forecast: data.forecast,
-          current: data.current
+          current: data.current,
         })
       })
-      .catch(err => console.error(err))
+      .catch((err) => console.error(err))
   }
 
-  getDateTimeFromTimestamp (unixTimeStamp) {
+  getDateTimeFromTimestamp(unixTimeStamp) {
     const date = new Date(unixTimeStamp)
-    const options = { weekday: 'long' }
-    const day = new Intl.DateTimeFormat('en-US', options).format(date)
+    const options = { weekday: "long" }
+    const day = new Intl.DateTimeFormat("en-US", options).format(date)
     return day
   }
 
-  render () {
-    const {
-      forecast,
-      current
-    } = this.state
+  render() {
+    const { forecast, current } = this.state
 
     const defaults = {
-      color: 'white',
+      color: "white",
       size: 48,
-      animate: true
+      animate: true,
     }
 
     const weatherStyle = {
-      marginTop: '10px',
-      marginBottom: '10px'
+      marginTop: "10px",
+      marginBottom: "10px",
     }
 
     let currentTemp = current.apparentTemperature.toString()
     if (currentTemp.length > 3) {
-      currentTemp = current.apparentTemperature.toString().substr(0, current.apparentTemperature.toString().length - 1)
+      currentTemp = current.apparentTemperature
+        .toString()
+        .substr(0, current.apparentTemperature.toString().length - 1)
     }
 
     return (
       <Wrapper>
         <CurrentWrapper>
-          <CurrentTempWrapper>
-            {currentTemp}°
-          </CurrentTempWrapper>
-          <span style={{ position: 'relative' }}>
-            <div
-              style={{
-                width: '32px',
-                height: '32px',
-                display: 'inline'
-              }}
-            >
-              <ReactAnimatedWeather
-                icon={current.icon.toUpperCase().replace(/-/g, '_')}
-                color={defaults.color}
-                size={32}
-                animate={defaults.animate}
-              />
-            </div>
-            <div
-              style={{
-                color: '#fff',
-                display: 'inline',
-                height: '35px',
-                position: 'absolute',
-                bottom: '-7px',
-                left: '40px'
-              }}
-            >
-              {current.summary}
-            </div>
+          <CurrentTempWrapper>{currentTemp}°</CurrentTempWrapper>
+          <span
+            style={{
+              position: "relative",
+              display: "flex",
+              alignItems: "center",
+              margin: "10px 0",
+            }}
+          >
+            <ReactAnimatedWeather
+              icon={current.icon.toUpperCase().replace(/-/g, "_")}
+              color={defaults.color}
+              size={32}
+              animate={defaults.animate}
+            />
+            <span style={{ marginLeft: "15px" }}>{current.summary}</span>
           </span>
         </CurrentWrapper>
         <ForecastWrapper>
-          {Array.isArray(forecast) && forecast.map((day, index) => {
-            let dayTemp = day.apparentTemperatureHigh.toString()
-            if (dayTemp.length > 3 && dayTemp.charAt(dayTemp.length - 2) !== '.') {
-              dayTemp = dayTemp.substr(0, dayTemp.length - 1)
-            }
-            return (
-              <DayWrapper
-                key={day.time}
-              >
-                <DateTempWrapper>
-                  <div style={weatherStyle}>
-                    {this.getDateTimeFromTimestamp(day.time * 1000).substr(0, 3)}
-                  </div>
-                  <ReactAnimatedWeather
-                    icon={day.icon.toUpperCase().replace(/-/g, '_')}
-                    color={defaults.color}
-                    size={defaults.size}
-                    animate={defaults.animate}
-                  />
-                  <div style={weatherStyle}>
-                    {dayTemp}°
-                  </div>
-                </DateTempWrapper>
-              </DayWrapper>
-            )
-          })}
+          {Array.isArray(forecast) &&
+            forecast.map((day, index) => {
+              let dayTemp = day.apparentTemperatureHigh.toString()
+              if (
+                dayTemp.length > 3 &&
+                dayTemp.charAt(dayTemp.length - 2) !== "."
+              ) {
+                dayTemp = dayTemp.substr(0, dayTemp.length - 1)
+              }
+              return (
+                <DayWrapper key={day.time}>
+                  <DateTempWrapper>
+                    <div style={weatherStyle}>
+                      {this.getDateTimeFromTimestamp(day.time * 1000).substr(
+                        0,
+                        3
+                      )}
+                    </div>
+                    <ReactAnimatedWeather
+                      icon={day.icon.toUpperCase().replace(/-/g, "_")}
+                      color={defaults.color}
+                      size={defaults.size}
+                      animate={defaults.animate}
+                    />
+                    <div style={weatherStyle}>{dayTemp}°</div>
+                  </DateTempWrapper>
+                </DayWrapper>
+              )
+            })}
         </ForecastWrapper>
       </Wrapper>
     )
