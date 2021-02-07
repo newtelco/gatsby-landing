@@ -135,15 +135,7 @@ const getCategoryLabels = (data) => {
       </Tab>
     )
   })
-  appJsonArray.push(
-    <CmdPalette
-      data-tip="Cmds"
-      data-effect="solid"
-      data-background-color="#0c090d"
-      data-border={true}
-      data-border-color="#67B2464e"
-    />
-  )
+  appJsonArray.push(<CmdPalette />)
   return appJsonArray
 }
 

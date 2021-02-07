@@ -34,7 +34,7 @@ const icons = {
   trello: trello,
   proxmox: proxmox,
   grafana: grafana,
-  "unifi wifi": unifi,
+  "ubiquiti wifi": unifi,
   observium: observium,
   phones: threecx,
   "leitungs docs": docs,
@@ -59,18 +59,11 @@ const Wrapper = styled.div`
   justify-content: center;
   transition: color 250ms ease-in-out, box-shadow 250ms ease-in-out;
 
-  // Glassmorphism
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(18px);
-  transform-style: preserve-3d;
-  transform: translateZ(-100px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 22px 0 rgba(255, 255, 255, 0.05);
+  background: ${(props) => props.theme.color.primary};
 
   &:hover {
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(19px);
+    box-shadow: 0 8px 20px 0 rgba(255, 255, 255, 0.05);
+    /* backdrop-filter: blur(19px); */
   }
 
   @media (max-width: 768px) {
@@ -110,11 +103,19 @@ const CardHeader = styled.div`
   padding: 12px;
   background: ${(props) => props.theme.color.accent};
   border-radius: 5px;
+  transform-style: preserve-3d;
+  transform: translateZ(20px);
+
+  // Glassmorphism
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 22px 0 rgba(255, 255, 255, 0.05);
 `
 
 const CardTitle = styled.div`
   font-family: "Inconsolata", monospace;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 200;
   margin-bottom: 1rem;
   color: #fff;
@@ -129,8 +130,8 @@ const ProductIcon = ({ name }) => {
   return (
     <Image
       style={{ filter: "opacity(0.3) grayscale(1)" }}
-      height="36"
-      width="36"
+      height="32"
+      width="32"
     />
   )
 }

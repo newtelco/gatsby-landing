@@ -27,7 +27,7 @@
   /* transition: transform 250ms ease-in-out, -webkit-filter 250ms ease-in-out,
     filter 250ms ease-in-out; -- doesn't work for some reason, must transition: all ..hmm */
 
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(3px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.05);
@@ -76,7 +76,7 @@
 
   /* box-shadow: 0 8px 32px 0 rgba(203, 207, 252, 0.1);
   box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1); */
-  background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(3px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
