@@ -17,7 +17,7 @@ const Image = styled.img`
   margin: 30px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(1px);
-  border: 1px solid #67b2464e;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 250ms ease-in-out;
 
   &::after {
@@ -32,6 +32,7 @@ const Image = styled.img`
   &:hover {
     transform: rotate(-10deg);
     backdrop-filter: blur(6px);
+    border: 1px solid #67b2464e;
     box-shadow: 0 8px 32px 0 rgba(103, 178, 70, 0.1);
   }
 `

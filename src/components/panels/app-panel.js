@@ -37,8 +37,8 @@ const icons = {
   "unifi wifi": unifi,
   observium: observium,
   phones: threecx,
-  leitungdocs: docs,
-  maintenance: nt,
+  "leitungs docs": docs,
+  maint: nt,
   tickets: otrs,
   assets: snipe,
   "project overview": sheets,
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
   width: 130px;
   height: 130px;
   border-radius: 5px;
-  margin: 10px;
+  margin: 15px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -70,7 +70,7 @@ const Wrapper = styled.div`
   &:hover {
     background: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(19px);
   }
 
   @media (max-width: 768px) {
@@ -102,12 +102,12 @@ const Link = styled.a`
 
 const CardHeader = styled.div`
   position: absolute;
-  top: -5px;
+  top: -10px;
   left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 12px;
   background: ${(props) => props.theme.color.accent};
   border-radius: 5px;
 `
@@ -118,6 +118,7 @@ const CardTitle = styled.div`
   font-weight: 200;
   margin-bottom: 1rem;
   color: #fff;
+  text-align: center;
 `
 
 const ProductIcon = ({ name }) => {
@@ -125,7 +126,13 @@ const ProductIcon = ({ name }) => {
     return null
   }
   const Image = icons[name]
-  return <Image style={{ filter: "grayscale(1)" }} height="32" width="32" />
+  return (
+    <Image
+      style={{ filter: "opacity(0.3) grayscale(1)" }}
+      height="36"
+      width="36"
+    />
+  )
 }
 
 const AppPanel = (props) => {
