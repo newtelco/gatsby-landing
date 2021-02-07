@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   font-size: 1.2rem;
   font-family: "HK Grotesk Light", Arial, Helvetica, sans-serif;
   font-weight: 100;
-  transition: color 0.25s;
+  transition: color 250ms ease-in-out, box-shadow 250ms ease-in-out;
 
   // Glassmorphism
   background: rgba(255, 255, 255, 0.3);
@@ -84,6 +84,16 @@ const Link = styled.a`
   color: #333;
   display: inline-block;
   transition: all 150ms linear;
+
+  &:focus {
+    outline: none;
+
+    & .wrapper {
+      border-radius: 5px;
+      box-shadow: 0 0 0 4px rgba(103, 178, 70, 0.3);
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     height: 100%;
@@ -106,7 +116,11 @@ const AppPanel = (props) => {
 
   return (
     <Link target="_blank" href={props.app.url}>
-      <Wrapper id="tilt" style={{ transformStyle: "preserve-3d" }}>
+      <Wrapper
+        className="wrapper"
+        id="tilt"
+        style={{ transformStyle: "preserve-3d" }}
+      >
         <span style={{ transform: "translateZ(20px)" }}>{props.app.name}</span>
       </Wrapper>
     </Link>

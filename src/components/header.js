@@ -12,16 +12,27 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   padding: 20px;
-  border-radius: 0px 20px 20px 20px;
+  /* border-radius: 0px 20px 20px 20px; */
+  border-radius: 10px;
   margin: 30px;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(1px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: transform 250ms ease-in-out;
+  border: 1px solid #67b2464e;
+  transition: all 250ms ease-in-out;
+
+  &::after {
+    box-shadow: 0 8px 22px 0 rgba(255, 255, 255, 0.05);
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+  }
+  &:hover::after {
+    opacity: 0.7;
+  }
 
   &:hover {
     transform: rotate(-10deg);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 32px 0 rgba(103, 178, 70, 0.1);
   }
 `
 

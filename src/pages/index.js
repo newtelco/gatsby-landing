@@ -4,7 +4,6 @@ import Layout from "../components/common/layout/layout"
 import Apps from "../components/apps"
 import Header from "../components/header"
 import WeatherWidget from "../components/weather"
-// import Particles from 'react-particles-js'
 import TrelloWrapper from "../components/trello"
 
 const Wrapper = styled.div`

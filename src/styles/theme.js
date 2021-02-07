@@ -1,5 +1,3 @@
-// Theme
-
 const theme = {
   font: {
     primary: "Inconsolata",

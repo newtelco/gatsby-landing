@@ -66,7 +66,7 @@ const CurrentWrapper = styled.div`
 
 const CurrentTempWrapper = styled.div`
   font-size: 4rem;
-  color: #fff;
+  font-weight: 700;
 `
 
 class WeatherWidget extends React.Component {

@@ -18,39 +18,42 @@
   transition: filter 250ms ease-in-out;
 }
 
-.react-tabs__tab:not(.react-tabs__tab--selected):hover {
-  transform: translateY(-3px);
-  transition: all 250ms ease-in-out;
-  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.2);
-}
-
 .react-tabs__tab:not(.react-tabs__tab--selected) {
   background-color: transparent;
   border-radius: 5px;
   border: 1px solid #424b64;
   background: #141824;
   transition: all 250ms ease-in-out;
+  /* transition: transform 250ms ease-in-out, -webkit-filter 250ms ease-in-out,
+    filter 250ms ease-in-out; -- doesn't work for some reason, must transition: all ..hmm */
 
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(3px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.05);
 }
 
-.react-tabs__tab:focus {
+.react-tabs__tab:not(.react-tabs__tab--selected):hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.27);
+  box-shadow: 0 8px 32px 0 rgba(202, 202, 202, 0.1);
+  backdrop-filter: blur(7px);
+}
+.react-tabs__tab:not(.react-tabs__tab--selected):focus {
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 0 4px rgba(103, 178, 70, 0.3);
+}
+
+.react-tabs__list .react-tabs__tab:focus {
   outline: none;
   box-shadow: none;
   border-color: none;
+  box-shadow: 0 0 0 4px rgba(103, 178, 70, 0.3);
 }
 
 .react-tabs__tab:focus:after {
-  content: "";
-  position: absolute;
-  height: 5px;
-  left: -4px;
-  right: -4px;
-  bottom: -5px;
   background: none;
 }
 
@@ -64,7 +67,6 @@
   transform: translateY(10px);
 
   background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1);
   backdrop-filter: blur(8px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -83,7 +85,8 @@
   border-radius: 5px;
 
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(203, 207, 252, 0.1);
+  /* box-shadow: 0 8px 32px 0 rgba(203, 207, 252, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(171, 176, 247, 0.1); */
   backdrop-filter: blur(3px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);

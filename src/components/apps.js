@@ -126,15 +126,23 @@ const getCategoryLabels = (data) => {
         index={index}
         key={item.node.category}
         data-tip={item.node.category}
+        data-background-color="#0c090d"
+        data-border={true}
+        data-border-color="#67B2464e"
         data-effect="solid"
-        data-type="dark"
       >
         {getIcon(item.node.category)}
       </Tab>
     )
   })
   appJsonArray.push(
-    <CmdPalette data-tip="Cmds" data-effect="solid" data-type="dark" />
+    <CmdPalette
+      data-tip="Cmds"
+      data-effect="solid"
+      data-background-color="#0c090d"
+      data-border={true}
+      data-border-color="#67B2464e"
+    />
   )
   return appJsonArray
 }

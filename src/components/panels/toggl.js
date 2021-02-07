@@ -6,7 +6,14 @@ import "../style/react-tabs-newtelco.css"
 class Toggl extends React.Component {
   render() {
     return (
-      <Tab key="Toggl" data-tip="Cmd" data-effect="solid" data-type="dark">
+      <Tab
+        key="Toggl"
+        data-tip="Cmd"
+        data-effect="solid"
+        data-background-color="#0c090d"
+        data-border={true}
+        data-border-color="#67B2464e"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"

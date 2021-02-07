@@ -1,10 +1,8 @@
-import React from 'react'
-import ReactTooltip from 'react-tooltip'
+import React from "react"
+import ReactTooltip from "react-tooltip"
 
 const Tooltip = () => {
-  return (
-    <ReactTooltip />
-  )
+  return <ReactTooltip />
 }
 
 export default Tooltip
