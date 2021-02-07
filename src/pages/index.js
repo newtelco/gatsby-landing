@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
+  padding: 4rem;
   justify-content: space-around;
   align-items: center;
   @media (max-width: 768px) {
