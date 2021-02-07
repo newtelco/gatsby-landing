@@ -40,16 +40,9 @@
   box-shadow: 0 8px 32px 0 rgba(202, 202, 202, 0.1);
   backdrop-filter: blur(7px);
 }
-.react-tabs__tab:not(.react-tabs__tab--selected):focus {
-  outline: none;
-  border-radius: 5px;
-  box-shadow: 0 0 0 4px rgba(103, 178, 70, 0.3);
-}
 
-.react-tabs__list .react-tabs__tab:focus {
+.react-tabs__tab:focus {
   outline: none;
-  box-shadow: none;
-  border-color: none;
   box-shadow: 0 0 0 4px rgba(103, 178, 70, 0.3);
 }
 

@@ -6,17 +6,47 @@ import gmail from "../../images/icons/gmail.svg"
 import drive from "../../images/icons/drive.svg"
 import threecx from "../../images/icons/threecx.svg"
 import nt from "../../images/icons/nt.svg"
-import password from "../../images/icons/password.svg"
+import mediawiki from "../../images/icons/mediawiki.svg"
+import passwords from "../../images/icons/bitw.svg"
 import netbox from "../../images/icons/netbox.svg"
+import trello from "../../images/icons/trello2.svg"
+import proxmox from "../../images/icons/pve.svg"
+import grafana from "../../images/icons/grafana.svg"
+import unifi from "../../images/icons/unifi.svg"
+import observium from "../../images/icons/observium.svg"
+import docs from "../../images/icons/docs.svg"
+import otrs from "../../images/icons/otrs.svg"
+import snipe from "../../images/icons/snipe.svg"
+import sheets from "../../images/icons/sheets.svg"
+import redash from "../../images/icons/redash.svg"
+import sugar from "../../images/icons/sugar.svg"
+import mks from "../../images/icons/mks.svg"
 
 const icons = {
+  passwords: passwords,
+  wiki: mediawiki,
   telefon: threecx,
   gmail: gmail,
   gdrive: drive,
   crm: nt,
   vacation: nt,
-  passwords: password,
   racks: netbox,
+  trello: trello,
+  proxmox: proxmox,
+  grafana: grafana,
+  "unifi wifi": unifi,
+  observium: observium,
+  phones: threecx,
+  leitungdocs: docs,
+  maintenance: nt,
+  tickets: otrs,
+  assets: snipe,
+  "project overview": sheets,
+  "mgmt dashboard": redash,
+  sugarcrm: sugar,
+  "mks videos": mks,
+  "mks akademie": mks,
+  "mks sharepoint": mks,
 }
 
 const Wrapper = styled.div`
@@ -30,7 +60,6 @@ const Wrapper = styled.div`
   transition: color 250ms ease-in-out, box-shadow 250ms ease-in-out;
 
   // Glassmorphism
-
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(18px);
   transform-style: preserve-3d;
