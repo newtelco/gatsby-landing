@@ -118,7 +118,10 @@ class WeatherWidget extends React.Component {
     }
 
     let currentTemp = current.apparentTemperature.toString()
-    if (currentTemp.length > 3) {
+    if (
+      currentTemp.length > 3 &&
+      currentTemp.charAt(currentTemp.length - 2) !== "."
+    ) {
       currentTemp = current.apparentTemperature
         .toString()
         .substr(0, current.apparentTemperature.toString().length - 1)
@@ -147,7 +150,7 @@ class WeatherWidget extends React.Component {
         </CurrentWrapper>
         <ForecastWrapper>
           {Array.isArray(forecast) &&
-            forecast.map((day, index) => {
+            forecast.map((day) => {
               let dayTemp = day.apparentTemperatureHigh.toString()
               if (
                 dayTemp.length > 3 &&
