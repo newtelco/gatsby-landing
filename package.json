@@ -11,12 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve"
   },
-  "keywords": [
-    "gatsby",
-    "newtelco",
-    "landing page",
-    "intranet"
-  ],
+  "keywords": ["gatsby", "newtelco", "landing page", "intranet"],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -50,7 +45,6 @@
     "react-tooltip": "^4.2.13",
     "styled-components": "^5.2.1",
     "toggl-api": "^1.0.1",
-    "trello.ts": "^1.0.3",
     "universal-tilt.js": "^2.0.6"
   },
   "devDependencies": {

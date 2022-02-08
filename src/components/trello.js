@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { TrelloClient } from "trello.ts"
+// import { TrelloClient } from "trello.ts" // NOTE: removed from NPM
 import Marquee from "react-double-marquee"
 
 const TrelloCard = styled.div`
@@ -105,30 +105,31 @@ class TrelloWrapper extends React.Component {
   }
 
   fetchCards() {
-    const client = new TrelloClient({
-      key: process.env.GATSBY_TRELLO_API,
-      token: process.env.GATSBY_TRELLO_TOKEN,
-      timeout: 1000,
-    })
+    return true
+    // const client = new TrelloClient({
+    //   key: process.env.GATSBY_TRELLO_API,
+    //   token: process.env.GATSBY_TRELLO_TOKEN,
+    //   timeout: 1000,
+    // })
 
-    client.board
-      .getCards({ id: "5c671254bcea64060f2d0161" }) // Board: Newtelco Technik
-      .then((data) => {
-        const newCards = []
-        data &&
-          data.forEach((card) => {
-            if (card.idList === "5c67128006d9580f33786ba8") {
-              // List: To-Do
-              newCards.push(card)
-            }
-          })
-        this.setState({
-          cards: newCards,
-        })
-      })
-      .catch((e) => {
-        console.error(`Error Fetching Cards - ${e}`)
-      })
+    // client.board
+    //   .getCards({ id: "5c671254bcea64060f2d0161" }) // Board: Newtelco Technik
+    //   .then((data) => {
+    //     const newCards = []
+    //     data &&
+    //       data.forEach((card) => {
+    //         if (card.idList === "5c67128006d9580f33786ba8") {
+    //           // List: To-Do
+    //           newCards.push(card)
+    //         }
+    //       })
+    //     this.setState({
+    //       cards: newCards,
+    //     })
+    //   })
+    //   .catch((e) => {
+    //     console.error(`Error Fetching Cards - ${e}`)
+    //   })
   }
 
   render() {
