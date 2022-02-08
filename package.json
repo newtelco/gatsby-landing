@@ -5,7 +5,7 @@
   "version": "1.1.0",
   "author": "Nico Domino <yo@ndo.dev>",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && cp _redirects public",
     "dev": "NODE_ENV=development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
